@@ -850,13 +850,6 @@
       },
       {
         "type": "remote",
-        "tag": "fakeip-rule",
-        "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/fakeip-filter.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
         "tag": "applications-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
