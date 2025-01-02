@@ -347,7 +347,7 @@
       "tag": "🎵 Tiktok",
       "type": "urltest",
       "outbounds": [
-        "all"
+        "{all}"
       ],
       "filter": [
         {
@@ -366,7 +366,7 @@
       "tag": "📞 Talkatone",
       "type": "urltest",
       "outbounds": [
-        "all"
+        "{all}"
       ],
       "filter": [
         {
