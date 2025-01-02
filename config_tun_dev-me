@@ -1,1 +1,1206 @@
-
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "0.0.0.0:9095",
+      "external_ui": "/etc/sing-box/ui",
+      "secret": "Clash12397272!",
+      "external_ui_download_url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "direct-out",
+      "default_mode": "rule"
+    },
+    "cache_file": {
+      "enabled": true,
+      "path": "/etc/sing-box/cache.db",
+      "store_fakeip": false
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "default-dns",
+        "address": "218.85.157.99",
+        "detour": "direct-out"
+      },
+      {
+        "tag": "block-dns",
+        "address": "rcode://refused"
+      },
+      {
+        "tag": "aliyun_quic-dns",
+        "address": "quic://dns.alidns.com:853",
+        "address_resolver": "default-dns",
+        "detour": "direct-out"
+      },
+      {
+        "tag": "tencent_https-dns",
+        "address": "https://doh.pub/dns-query",
+        "address_resolver": "default-dns",
+        "detour": "direct-out"
+      },
+      {
+        "tag": "huoshan-dns",
+        "address": "180.184.2.2",
+        "detour": "direct-out"
+      },
+      {
+        "tag": "baidu-dns",
+        "address": "180.76.76.76",
+        "detour": "direct-out"
+      },
+      {
+        "tag": "360_https-dns",
+        "address": "https://doh.360.cn/dns-query",
+        "address_resolver": "default-dns",
+        "detour": "direct-out"
+      },
+      {
+        "tag": "google_https-dns",
+        "address": "https://dns.google/dns-query",
+        "address_resolver": "default-dns",
+        "detour": "♻️ 自动选择",
+        "client_subnet": "1.1.0.0"
+      },
+      {
+        "tag": "cloudflare_https-dns",
+        "address": "https://1.1.1.1/dns-query",
+        "address_resolver": "default-dns",
+        "detour": "♻️ 自动选择",
+        "client_subnet": "1.1.0.0"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "action": "route",
+        "server": "default-dns"
+      },
+      {
+        "rule_set": [
+          "alidns_uc-rule",
+          "alidns_alibaba-rule",
+          "alidns_aliyun-rule",
+          "alidns_alibabcloud-rule",
+          "alidns_dingtalk-rule",
+          "alidns_youku-rule"
+        ],
+        "action": "route",
+        "server": "aliyun_quic-dns"
+      },
+      {
+        "rule_set": [
+          "tencentdns_tencent-rule",
+          "tencentdns_tencentgames-rule",
+          "tencentdns_bilibili-rule",
+          "tencentdns_bilibiligame-rule",
+          "tencentdns_xiaomi-rule"
+        ],
+        "action": "route",
+        "server": "tencent_https-dns"
+      },
+      {
+        "rule_set": [
+          "bytedance_gw-rule"
+        ],
+        "action": "route",
+        "server": "google_https-dns"
+      },
+      {
+        "rule_set": [
+          "bytedance-rule"
+        ],
+        "action": "route",
+        "server": "huoshan-dns"
+      },
+      {
+        "rule_set": [
+          "baidu-rule"
+        ],
+        "action": "route",
+        "server": "baidu-dns"
+      },
+      {
+        "rule_set": [
+          "qihoo360-rule"
+        ],
+        "action": "route",
+        "server": "360_https-dns"
+      },
+      {
+        "rule_set": [
+          "customize_direct-rule",
+          "rule_cn-rule"
+        ],
+        "action": "route",
+        "server": "aliyun_quic-dns"
+      },
+      {
+        "clash_mode": "direct",
+        "action": "route",
+        "server": "default-dns"
+      },
+      {
+        "clash_mode": "global",
+        "action": "route",
+        "server": "google_https-dns"
+      }
+    ],
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "final": "google_https-dns"
+  },
+  "inbounds": [
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "::",
+      "listen_port": 5350
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 5330,
+      "udp_timeout": "5m",
+      "sniff": true
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "singboxtun",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 1492,
+      "auto_route": true,
+      "auto_redirect": true,
+      "strict_route": true,
+      "udp_timeout": "5m",
+      "stack": "system",
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "tag": "🚀 节点选择",
+      "type": "selector",
+      "outbounds": [
+        "direct-out",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "♻️ 自动选择"
+    },
+    {
+      "type": "urltest",
+      "tag": "♻️ 自动选择",
+      "outbounds": [
+        "{all}"
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "3m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "selector",
+      "tag": "🚀 手动切换",
+      "outbounds": [
+        "{all}"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "📈 网络测试",
+      "outbounds": [
+        "direct-out",
+        "🚀 手动切换"
+      ],
+      "default": "🚀 手动切换"
+    },
+    {
+      "type": "selector",
+      "tag": "🤖 人工智能",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "type": "selector",
+      "tag": "🎮 游戏服务",
+      "outbounds": [
+        "direct-out",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "📲 电报消息",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "type": "selector",
+      "tag": "📹 油管视频",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "type": "selector",
+      "tag": "🎥 奈飞视频",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "SG|原生"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "📽️ 迪士尼",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "type": "selector",
+      "tag": "📺 Bigolive",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🇸🇬 狮城节点"
+    },
+    {
+      "type": "selector",
+      "tag": "🎞️ Max",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "type": "selector",
+      "tag": "🎬 Prime Video",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "type": "urltest",
+      "tag": "🎵 Tiktok",
+      "outbounds": [
+        "all"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "TW|台湾"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "urltest",
+      "tag": "📞 Talkatone",
+      "outbounds": [
+        {
+          "action": "include",
+          "keywords": [
+            "US|美国"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "selector",
+      "tag": "🍎 Apple TV",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "type": "selector",
+      "tag": "🍎 苹果服务",
+      "outbounds": [
+        "direct-out",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "🪟 微软服务",
+      "outbounds": [
+        "direct-out",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "🇬 谷歌服务",
+      "outbounds": [
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "其他节点"
+      ],
+      "default": "🚀 节点选择"
+    },
+    {
+      "tag": "GLOBAL",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "🇭🇰 香港节点",
+      "outbounds": [
+        {
+          "action": "include",
+          "keywords": [
+            "HK|香港"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "urltest",
+      "tag": "🇨🇳 台湾节点",
+      "outbounds": [
+        {
+          "action": "include",
+          "keywords": [
+            "TW|台湾"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "urltest",
+      "tag": "🇸🇬 狮城节点",
+      "outbounds": [
+        {
+          "action": "include",
+          "keywords": [
+            "SG|新加坡"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "urltest",
+      "tag": "🇺🇸 美国节点",
+      "outbounds": [
+        {
+          "action": "include",
+          "keywords": [
+            "US|美国"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "urltest",
+      "tag": "🇯🇵 日本节点",
+      "outbounds": [
+        {
+          "action": "include",
+          "keywords": [
+            "JP|日本"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "urltest",
+      "tag": "🇰🇷 韩国节点",
+      "outbounds": [
+        {
+          "action": "include",
+          "keywords": [
+            "KR|韩国"
+          ]
+        }
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "5m",
+      "tolerance": 30,
+      "idle_timeout": "30m"
+    },
+    {
+      "type": "selector",
+      "tag": "其他节点",
+      "outbounds": [
+        {
+          "action": "exclude",
+          "keywords": [
+            "HK|香港|TW|台湾|SG|新加坡|US|美国|JP|日本|KR|韩国"
+          ]
+        }
+      ]
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "🐠 漏网之鱼",
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "network": [
+              "udp"
+            ]
+          },
+          {
+            "port": [
+              443
+            ]
+          }
+        ],
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
+      },
+      {
+        "rule_set": [
+          "customize_direct-rule"
+        ],
+        "action": "route",
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": [
+          "customize_download-rule",
+          "talktonecdn-rule"
+        ],
+        "action": "route",
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": [
+          "fakeip-rule"
+        ],
+        "action": "route",
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": [
+          "applications-rule"
+        ],
+        "action": "route",
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": [
+          "domainset_reject-rule",
+          "domainset_reject_extra-rule",
+          "non_ip_reject-rule",
+          "non_ip_reject_no_drop-rule",
+          "non_ip_reject_drop-rule",
+          "ip_reject-rule",
+          "non_ip_sogouinput_reject-rule",
+          "talktoneads-rule"
+        ],
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
+      },
+      {
+        "rule_set": [
+          "private-rule",
+          "privateip-rule"
+        ],
+        "action": "route",
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": [
+          "docker-rule"
+        ],
+        "action": "route",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "rule_set": [
+          "networktest-rule"
+        ],
+        "action": "route",
+        "outbound": "📈 网络测试"
+      },
+      {
+        "rule_set": [
+          "ai-rule"
+        ],
+        "action": "route",
+        "outbound": "🤖 人工智能"
+      },
+      {
+        "rule_set": [
+          "games-rule"
+        ],
+        "action": "route",
+        "outbound": "🎮 游戏服务"
+      },
+      {
+        "rule_set": [
+          "telegramsite-rule",
+          "telegramip-rule"
+        ],
+        "action": "route",
+        "outbound": "📲 电报消息"
+      },
+      {
+        "rule_set": [
+          "youtube-rule"
+        ],
+        "action": "route",
+        "outbound": "📹 油管视频"
+      },
+      {
+        "rule_set": [
+          "bigolive-rule"
+        ],
+        "action": "route",
+        "outbound": "📺 Bigolive"
+      },
+      {
+        "rule_set": [
+          "netflix-rule",
+          "netflixip-rule"
+        ],
+        "action": "route",
+        "outbound": "🎥 奈飞视频"
+      },
+      {
+        "rule_set": [
+          "disney-rule"
+        ],
+        "action": "route",
+        "outbound": "📽️ 迪士尼"
+      },
+      {
+        "rule_set": [
+          "max-rule"
+        ],
+        "action": "route",
+        "outbound": "🎞️ Max"
+      },
+      {
+        "rule_set": [
+          "primevideo-rule"
+        ],
+        "action": "route",
+        "outbound": "🎬 Prime Video"
+      },
+      {
+        "rule_set": [
+          "Tiktok-rule"
+        ],
+        "action": "route",
+        "outbound": "🎵 Tiktok"
+      },
+      {
+        "domain_suffix": [
+          "tktn.be"
+        ],
+        "action": "route",
+        "outbound": "📞 Talkatone"
+      },
+      {
+        "rule_set": [
+          "appletv-rule"
+        ],
+        "action": "route",
+        "outbound": "🍎 Apple TV"
+      },
+      {
+        "rule_set": [
+          "apple-rule"
+        ],
+        "action": "route",
+        "outbound": "🍎 苹果服务"
+      },
+      {
+        "rule_set": [
+          "microsoft-rule"
+        ],
+        "action": "route",
+        "outbound": "🪟 微软服务"
+      },
+      {
+        "rule_set": [
+          "google-rule",
+          "googleip-rule"
+        ],
+        "action": "route",
+        "outbound": "🇬 谷歌服务"
+      },
+      {
+        "rule_set": [
+          "proxy-rule"
+        ],
+        "action": "route",
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "rule_set": [
+          "cn-rule",
+          "cnip-rule"
+        ],
+        "action": "route",
+        "outbound": "direct-out"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct-out"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "GLOBAL"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "local",
+        "tag": "customize_download-rule",
+        "format": "source",
+        "path": "/etc/homeproxy/ruleset/download.json"
+      },
+      {
+        "type": "local",
+        "tag": "customize_direct-rule",
+        "format": "source",
+        "path": "/etc/homeproxy/ruleset/direct.json"
+      },
+      {
+        "type": "remote",
+        "tag": "fakeip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/fakeip-filter.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "applications-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "private-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/private.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "privateip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "docker-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-docker.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "networktest-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/networktest.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "ai-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/ai.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "games-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/games-cn.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "telegramsite-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-telegram.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "telegramip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/telegramip.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "youtube-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/youtube.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "netflix-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/netflix.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "netflixip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/netflixip.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "disney-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/disney.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "local",
+        "tag": "bigolive-rule",
+        "format": "binary",
+        "path": "/etc/homeproxy/ruleset/bigo.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "max-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/max.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "primevideo-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/primevideo.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "Tiktok-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/tiktok.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "appletv-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/appletv.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "apple-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/apple-cn.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "microsoft-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/microsoft-cn.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "google-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/google.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "googleip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geoip/google.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "proxy-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/proxy.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "cn-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/cn.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "cnip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/cnip.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "domainset_reject-rule",
+        "format": "source",
+        "url": "https://ruleset.skk.moe/sing-box/domainset/reject.json",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "domainset_reject_extra-rule",
+        "format": "source",
+        "url": "https://ruleset.skk.moe/sing-box/domainset/reject_extra.json",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "non_ip_reject-rule",
+        "format": "source",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject.json",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "non_ip_reject_no_drop-rule",
+        "format": "source",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-no-drop.json",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "non_ip_reject_drop-rule",
+        "format": "source",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-drop.json",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "ip_reject-rule",
+        "format": "source",
+        "url": "https://ruleset.skk.moe/sing-box/ip/reject.json",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "non_ip_sogouinput_reject-rule",
+        "format": "source",
+        "url": "https://ruleset.skk.moe/sing-box/non_ip/sogouinput.json",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "alidns_uc-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/uc.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "alidns_alibaba-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/alibaba.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "alidns_aliyun-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/aliyun.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "alidns_alibabcloud-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/alibabacloud.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "alidns_dingtalk-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/dingtalk.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "alidns_youku-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/youku.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "tencentdns_tencent-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/tencent.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "tencentdns_tencentgames-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/tencent-games.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "tencentdns_bilibili-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/bilibili.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "tencentdns_bilibiligame-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/bilibili-game.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "tencentdns_xiaomi-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/xiaomi.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "bytedance_gw-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/bytedance@!cn.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "bytedance-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/bytedance.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "baidu-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/baidu.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "qihoo360-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/qihoo360.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "local",
+        "tag": "talktoneads-rule",
+        "format": "binary",
+        "path": "/etc/homeproxy/ruleset/talkatoneads.srs"
+      },
+      {
+        "type": "local",
+        "tag": "talktonecdn-rule",
+        "format": "binary",
+        "path": "/etc/homeproxy/ruleset/talkatonecdn.srs"
+      }
+    ]
+  }
+}
