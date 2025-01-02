@@ -58,7 +58,7 @@
         "server": "google-https-dns"
       }
     ],
-    "final": "google-https-dns",
+    "final": "google-https-dns"
   },
   "inbounds": [
     {
