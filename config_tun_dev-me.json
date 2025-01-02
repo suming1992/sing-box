@@ -114,10 +114,7 @@
         "server": "360_https-dns"
       },
       {
-        "rule_set": [
-          "customize_direct-rule",
-          "rule_cn-rule"
-        ],
+        "rule_set": "rule_cn-rule",
         "server": "aliyun_quic-dns"
       }
     ],
@@ -621,14 +618,7 @@
         "no_drop": false
       },
       {
-        "rule_set": [
-          "customize_direct-rule",
-          "talktonecdn-rule"
-        ],
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "rule_set": "customize_download-rule",
+        "rule_set": "talktonecdn-rule",
         "outbound": "🎯 全球直连"
       },
       {
@@ -738,18 +728,6 @@
       }
     ],
     "rule_set": [
-      {
-        "type": "local",
-        "tag": "customize_download-rule",
-        "format": "source",
-        "path": "/etc/sing-box/ruleset/download.json"
-      },
-      {
-        "type": "local",
-        "tag": "customize_direct-rule",
-        "format": "source",
-        "path": "/etc/sing-box/ruleset/direct.json"
-      },
       {
         "type": "remote",
         "tag": "applications-rule",
