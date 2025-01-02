@@ -76,11 +76,11 @@
         "disable_cache": true
       },
       {
-        "clash_mode": "direct",
+        "clash_mode": "Direct",
         "server": "default-dns"
       },
       {
-        "clash_mode": "global",
+        "clash_mode": "Global",
         "server": "google_https-dns"
       },
       {
@@ -105,27 +105,19 @@
         "server": "tencent_https-dns"
       },
       {
-        "rule_set": [
-          "bytedance_gw-rule"
-        ],
+        "rule_set": "bytedance_gw-rule",
         "server": "google_https-dns"
       },
       {
-        "rule_set": [
-          "bytedance-rule"
-        ],
+        "rule_set": "bytedance-rule",
         "server": "huoshan-dns"
       },
       {
-        "rule_set": [
-          "baidu-rule"
-        ],
+        "rule_set": "baidu-rule",
         "server": "baidu-dns"
       },
       {
-        "rule_set": [
-          "qihoo360-rule"
-        ],
+        "rule_set": "qihoo360-rule",
         "server": "360_https-dns"
       },
       {
@@ -181,8 +173,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "♻️ 自动选择"
+      ]
     },
     {
       "tag": "♻️ 自动选择",
@@ -207,8 +198,7 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 手动切换"
-      ],
-      "default": "🚀 手动切换"
+      ]
     },
     {
       "tag": "🤖 人工智能",
@@ -223,8 +213,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🇨🇳 台湾节点"
+      ]
     },
     {
       "tag": "🎮 游戏服务",
@@ -241,8 +230,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🎯 全球直连"
+      ]
     },
     {
       "tag": "📲 电报消息",
@@ -258,8 +246,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🚀 节点选择"
+      ]
     },
     {
       "tag": "📹 油管视频",
@@ -275,8 +262,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🚀 节点选择"
+      ]
     },
     {
       "tag": "🎥 奈飞视频",
@@ -307,8 +293,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🚀 节点选择"
+      ]
     },
     {
       "tag": "📺 Bigolive",
@@ -324,8 +309,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🇸🇬 狮城节点"
+      ]
     },
     {
       "tag": "🎞️ Max",
@@ -341,8 +325,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🚀 节点选择"
+      ]
     },
     {
       "tag": "🎬 Prime Video",
@@ -358,8 +341,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🚀 节点选择"
+      ]
     },
     {
       "tag": "🎵 Tiktok",
@@ -413,8 +395,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🚀 节点选择"
+      ]
     },
     {
       "tag": "🍎 苹果服务",
@@ -431,8 +412,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🎯 全球直连"
+      ]
     },
     {
       "tag": "🪟 微软服务",
@@ -449,8 +429,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🎯 全球直连"
+      ]
     },
     {
       "tag": "🇬 谷歌服务",
@@ -466,8 +445,7 @@
         "🇯🇵 日本节点",
         "🇰🇷 韩国节点",
         "其他节点"
-      ],
-      "default": "🚀 节点选择"
+      ]
     },
     {
       "tag": "🇭🇰 香港节点",
@@ -788,20 +766,13 @@
         "type": "local",
         "tag": "customize_download-rule",
         "format": "source",
-        "path": "/etc/homeproxy/ruleset/download.json"
+        "path": "/etc/sing-box/ruleset/download.json"
       },
       {
         "type": "local",
         "tag": "customize_direct-rule",
         "format": "source",
-        "path": "/etc/homeproxy/ruleset/direct.json"
-      },
-      {
-        "type": "remote",
-        "tag": "fakeip-rule",
-        "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/fakeip-filter.srs",
-        "download_detour": "🎯 全球直连"
+        "path": "/etc/sing-box/ruleset/direct.json"
       },
       {
         "type": "remote",
@@ -898,7 +869,7 @@
         "type": "local",
         "tag": "bigolive-rule",
         "format": "binary",
-        "path": "/etc/homeproxy/ruleset/bigo.srs"
+        "path": "/etc/sing-box/ruleset/bigo.srs"
       },
       {
         "type": "remote",
@@ -1135,13 +1106,13 @@
         "type": "local",
         "tag": "talktoneads-rule",
         "format": "binary",
-        "path": "/etc/homeproxy/ruleset/talkatoneads.srs"
+        "path": "/etc/sing-box/ruleset/talkatoneads.srs"
       },
       {
         "type": "local",
         "tag": "talktonecdn-rule",
         "format": "binary",
-        "path": "/etc/homeproxy/ruleset/talkatonecdn.srs"
+        "path": "/etc/sing-box/ruleset/talkatonecdn.srs"
       }
     ]
   }
