@@ -322,7 +322,6 @@
       },
       {
         "rule_set": [
-          "applications-rule",
           "private-rule",
           "privateip-rule"
         ],
@@ -341,13 +340,6 @@
       }
     ],
     "rule_set": [
-      {
-        "type": "remote",
-        "tag": "applications-rule",
-        "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/applications.srs",
-        "download_detour": "direct-out"
-      },
       {
         "type": "remote",
         "tag": "private-rule",
