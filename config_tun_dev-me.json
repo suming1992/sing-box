@@ -63,8 +63,8 @@
   "inbounds": [
     {
       "type": "direct",
-      "listen": "::",
       "tag": "dns-in",
+      "listen": "::",
       "listen_port": 5350
     },
     {
@@ -77,14 +77,22 @@
       "auto_route": true,
       "auto_redirect": true,
       "strict_route": true,
-      "stack": "system"
+      "stack": "mixed",
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "::",
+          "server_port": 2080
+        }
+      }
     },
     {
       "type": "mixed",
+      "tag": "mixed-in",
       "listen": "::",
       "listen_port": 2080,
-      "sniff": true,
-      "users": []
+      "users": [],
+      "set_system_proxy": false
     }
   ],
   "outbounds": [
