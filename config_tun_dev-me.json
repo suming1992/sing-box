@@ -76,7 +76,6 @@
     "rules": [
       {
         "outbound": "any",
-        "action": "route",
         "server": "default-dns"
       },
       {
@@ -88,7 +87,6 @@
           "alidns_dingtalk-rule",
           "alidns_youku-rule"
         ],
-        "action": "route",
         "server": "aliyun_quic-dns"
       },
       {
@@ -99,35 +97,30 @@
           "tencentdns_bilibiligame-rule",
           "tencentdns_xiaomi-rule"
         ],
-        "action": "route",
         "server": "tencent_https-dns"
       },
       {
         "rule_set": [
           "bytedance_gw-rule"
         ],
-        "action": "route",
         "server": "google_https-dns"
       },
       {
         "rule_set": [
           "bytedance-rule"
         ],
-        "action": "route",
         "server": "huoshan-dns"
       },
       {
         "rule_set": [
           "baidu-rule"
         ],
-        "action": "route",
         "server": "baidu-dns"
       },
       {
         "rule_set": [
           "qihoo360-rule"
         ],
-        "action": "route",
         "server": "360_https-dns"
       },
       {
@@ -135,44 +128,29 @@
           "customize_direct-rule",
           "rule_cn-rule"
         ],
-        "action": "route",
         "server": "aliyun_quic-dns"
       },
       {
         "clash_mode": "direct",
-        "action": "route",
         "server": "default-dns"
       },
       {
         "clash_mode": "global",
-        "action": "route",
         "server": "google_https-dns"
       }
     ],
-    "disable_cache": false,
-    "disable_expire": false,
-    "independent_cache": false,
     "final": "google_https-dns"
   },
   "inbounds": [
     {
-      "type": "direct",
-      "tag": "dns-in",
-      "listen": "::",
-      "listen_port": 5350
-    },
-    {
       "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "::",
-      "listen_port": 5330,
-      "udp_timeout": "5m",
-      "sniff": true
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "users": []
     },
     {
       "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "singboxtun",
       "address": [
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
@@ -181,7 +159,6 @@
       "auto_route": true,
       "auto_redirect": true,
       "strict_route": true,
-      "udp_timeout": "5m",
       "stack": "system",
       "platform": {
         "http_proxy": {
@@ -255,7 +232,7 @@
         "🇰🇷 韩国节点",
         "其他节点"
       ],
-      "default": "🚀 节点选择"
+      "default": "🇨🇳 台湾节点"
     },
     {
       "type": "selector",
@@ -415,10 +392,13 @@
       "type": "urltest",
       "tag": "📞 Talkatone",
       "outbounds": [
+        "all"
+      ],
+      "filter": [
         {
           "action": "include",
           "keywords": [
-            "US|美国"
+            "TW|台湾"
           ]
         }
       ],
@@ -508,6 +488,9 @@
       "type": "urltest",
       "tag": "🇭🇰 香港节点",
       "outbounds": [
+        "{all}"
+      ],
+      "filter": [
         {
           "action": "include",
           "keywords": [
@@ -524,6 +507,9 @@
       "type": "urltest",
       "tag": "🇨🇳 台湾节点",
       "outbounds": [
+        "{all}"
+      ],
+      "filter": [
         {
           "action": "include",
           "keywords": [
@@ -540,6 +526,9 @@
       "type": "urltest",
       "tag": "🇸🇬 狮城节点",
       "outbounds": [
+        "{all}"
+      ],
+      "filter": [
         {
           "action": "include",
           "keywords": [
@@ -556,6 +545,9 @@
       "type": "urltest",
       "tag": "🇺🇸 美国节点",
       "outbounds": [
+        "{all}"
+      ],
+      "filter": [
         {
           "action": "include",
           "keywords": [
@@ -572,6 +564,9 @@
       "type": "urltest",
       "tag": "🇯🇵 日本节点",
       "outbounds": [
+        "{all}"
+      ],
+      "filter": [
         {
           "action": "include",
           "keywords": [
@@ -588,6 +583,9 @@
       "type": "urltest",
       "tag": "🇰🇷 韩国节点",
       "outbounds": [
+        "{all}"
+      ],
+      "filter": [
         {
           "action": "include",
           "keywords": [
@@ -604,6 +602,9 @@
       "type": "selector",
       "tag": "其他节点",
       "outbounds": [
+        "{all}"
+      ],
+      "filter": [
         {
           "action": "exclude",
           "keywords": [
@@ -645,14 +646,7 @@
       },
       {
         "rule_set": [
-          "customize_direct-rule"
-        ],
-        "action": "route",
-        "outbound": "direct-out"
-      },
-      {
-        "rule_set": [
-          "customize_download-rule",
+          "customize_direct-rule",
           "talktonecdn-rule"
         ],
         "action": "route",
@@ -660,7 +654,7 @@
       },
       {
         "rule_set": [
-          "fakeip-rule"
+          "customize_download-rule"
         ],
         "action": "route",
         "outbound": "direct-out"
