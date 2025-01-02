@@ -286,22 +286,6 @@
       ]
     },
     {
-      "tag": "📺 Bigolive",
-      "type": "selector",
-      "outbounds": [
-        "🚀 节点选择",
-        "♻️ 自动选择",
-        "🚀 手动切换",
-        "🇭🇰 香港节点",
-        "🇨🇳 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇺🇸 美国节点",
-        "🇯🇵 日本节点",
-        "🇰🇷 韩国节点",
-        "其他节点"
-      ]
-    },
-    {
       "tag": "🎞️ Max",
       "type": "selector",
       "outbounds": [
@@ -618,18 +602,8 @@
         "no_drop": false
       },
       {
-        "rule_set": "talktonecdn-rule",
-        "outbound": "🎯 全球直连"
-      },
-      {
         "rule_set": "applications-rule",
         "outbound": "🎯 全球直连"
-      },
-      {
-        "rule_set": "talktoneads-rule",
-        "action": "reject",
-        "method": "default",
-        "no_drop": false
       },
       {
         "rule_set": [
@@ -664,10 +638,6 @@
       {
         "rule_set": "youtube-rule",
         "outbound": "📹 油管视频"
-      },
-      {
-        "rule_set": "bigolive-rule",
-        "outbound": "📺 Bigolive"
       },
       {
         "rule_set": [
@@ -818,12 +788,6 @@
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/disney.srs",
         "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "local",
-        "tag": "bigolive-rule",
-        "format": "binary",
-        "path": "/etc/sing-box/ruleset/bigo.srs"
       },
       {
         "type": "remote",
@@ -1006,18 +970,6 @@
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/sing/geo/geosite/qihoo360.srs",
         "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "local",
-        "tag": "talktoneads-rule",
-        "format": "binary",
-        "path": "/etc/sing-box/ruleset/talkatoneads.srs"
-      },
-      {
-        "type": "local",
-        "tag": "talktonecdn-rule",
-        "format": "binary",
-        "path": "/etc/sing-box/ruleset/talkatonecdn.srs"
       }
     ]
   }
