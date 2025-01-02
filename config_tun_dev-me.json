@@ -345,42 +345,42 @@
         "type": "remote",
         "tag": "applications-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/applications.srs",
         "download_detour": "direct-out"
       },
       {
         "type": "remote",
         "tag": "private-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/private.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/private.srs",
         "download_detour": "direct-out"
       },
       {
         "type": "remote",
         "tag": "privateip-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/privateip.srs",
         "download_detour": "direct-out"
       },
       {
         "type": "remote",
         "tag": "proxy-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/proxy.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/proxy.srs",
         "download_detour": "🎯 全球直连"
       },
       {
         "type": "remote",
         "tag": "cn-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/cn.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/cn.srs",
         "download_detour": "🎯 全球直连"
       },
       {
         "type": "remote",
         "tag": "cnip-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/cnip.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/cnip.srs",
         "download_detour": "🎯 全球直连"
       }
     ]
