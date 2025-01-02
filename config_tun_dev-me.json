@@ -60,13 +60,6 @@
         "address_resolver": "default-dns",
         "detour": "♻️ 自动选择",
         "client_subnet": "1.1.0.0"
-      },
-      {
-        "tag": "cloudflare_https-dns",
-        "address": "https://1.1.1.1/dns-query",
-        "address_resolver": "default-dns",
-        "detour": "♻️ 自动选择",
-        "client_subnet": "1.1.0.0"
       }
     ],
     "rules": [
@@ -134,7 +127,7 @@
     {
       "type": "tun",
       "address": [
-        "172.19.0.1/30",
+        "172.18.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
       "mtu": 9000,
@@ -359,8 +352,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "📞 Talkatone",
@@ -378,8 +370,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "🍎 Apple TV",
@@ -463,8 +454,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "🇨🇳 台湾节点",
@@ -482,8 +472,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "🇸🇬 狮城节点",
@@ -501,8 +490,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "🇺🇸 美国节点",
@@ -520,8 +508,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "🇯🇵 日本节点",
@@ -539,8 +526,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "🇰🇷 韩国节点",
@@ -558,8 +544,7 @@
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "5m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
       "tag": "其他节点",
