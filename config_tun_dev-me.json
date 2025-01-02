@@ -321,6 +321,14 @@
         "no_drop": false
       },
       {
+        "rule_set": [
+          "applications-rule",
+          "private-rule",
+          "privateip-rule"
+        ],
+        "outbound": "🎯 全球直连"
+      },
+      {
         "rule_set": "proxy-rule",
         "outbound": "🚀 节点选择"
       },
@@ -333,6 +341,27 @@
       }
     ],
     "rule_set": [
+      {
+        "type": "remote",
+        "tag": "applications-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "private-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/private.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "privateip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/privateip.srs",
+        "download_detour": "direct-out"
+      },
       {
         "type": "remote",
         "tag": "proxy-rule",
