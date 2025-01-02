@@ -321,6 +321,10 @@
         "no_drop": false
       },
       {
+        "rule_set": "privateip-rule",
+        "outbound": "🎯 全球直连"
+      },
+      {
         "rule_set": "proxy-rule",
         "outbound": "🚀 节点选择"
       },
@@ -333,6 +337,13 @@
       }
     ],
     "rule_set": [
+      {
+        "type": "remote",
+        "tag": "privateip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/privateip.srs",
+        "download_detour": "🎯 全球直连"
+      },
       {
         "type": "remote",
         "tag": "proxy-rule",
