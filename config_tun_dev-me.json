@@ -636,16 +636,7 @@
         "outbound": "🎯 全球直连"
       },
       {
-        "rule_set": [
-          "domainset_reject-rule",
-          "domainset_reject_extra-rule",
-          "non_ip_reject-rule",
-          "non_ip_reject_no_drop-rule",
-          "non_ip_reject_drop-rule",
-          "ip_reject-rule",
-          "non_ip_sogouinput_reject-rule",
-          "talktoneads-rule"
-        ],
+        "rule_set": "talktoneads-rule",
         "action": "reject",
         "method": "default",
         "no_drop": false
@@ -931,55 +922,6 @@
         "tag": "cnip-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://github.com/DustinWin/ruleset_geodata/raw/refs/heads/sing-box-ruleset/cnip.srs",
-        "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "remote",
-        "tag": "domainset_reject-rule",
-        "format": "source",
-        "url": "https://ruleset.skk.moe/sing-box/domainset/reject.json",
-        "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "remote",
-        "tag": "domainset_reject_extra-rule",
-        "format": "source",
-        "url": "https://ruleset.skk.moe/sing-box/domainset/reject_extra.json",
-        "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "remote",
-        "tag": "non_ip_reject-rule",
-        "format": "source",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject.json",
-        "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "remote",
-        "tag": "non_ip_reject_no_drop-rule",
-        "format": "source",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-no-drop.json",
-        "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "remote",
-        "tag": "non_ip_reject_drop-rule",
-        "format": "source",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/reject-drop.json",
-        "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "remote",
-        "tag": "ip_reject-rule",
-        "format": "source",
-        "url": "https://ruleset.skk.moe/sing-box/ip/reject.json",
-        "download_detour": "🎯 全球直连"
-      },
-      {
-        "type": "remote",
-        "tag": "non_ip_sogouinput_reject-rule",
-        "format": "source",
-        "url": "https://ruleset.skk.moe/sing-box/non_ip/sogouinput.json",
         "download_detour": "🎯 全球直连"
       },
       {
