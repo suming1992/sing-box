@@ -24,6 +24,7 @@
       {
         "tag": "default-dns",
         "address": "218.85.157.99",
+        "disable_cache": true,
         "detour": "🎯 全球直连"
       },
       {
