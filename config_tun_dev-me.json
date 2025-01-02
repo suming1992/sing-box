@@ -24,7 +24,6 @@
       {
         "tag": "default-dns",
         "address": "218.85.157.99",
-        "disable_cache": true,
         "detour": "🎯 全球直连"
       },
       {
@@ -73,7 +72,16 @@
     "rules": [
       {
         "outbound": "any",
+        "server": "default-dns",
+        "disable_cache": true
+      },
+      {
+        "clash_mode": "direct",
         "server": "default-dns"
+      },
+      {
+        "clash_mode": "global",
+        "server": "google_https-dns"
       },
       {
         "rule_set": [
@@ -126,26 +134,11 @@
           "rule_cn-rule"
         ],
         "server": "aliyun_quic-dns"
-      },
-      {
-        "clash_mode": "direct",
-        "server": "default-dns"
-      },
-      {
-        "clash_mode": "global",
-        "server": "google_https-dns"
       }
     ],
     "final": "google_https-dns"
   },
   "inbounds": [
-    {
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 2080,
-      "sniff": true,
-      "users": []
-    },
     {
       "type": "tun",
       "address": [
@@ -164,13 +157,16 @@
           "server_port": 2080
         }
       }
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "users": []
     }
   ],
   "outbounds": [
-    {
-      "type": "direct",
-      "tag": "🎯 全球直连"
-    },
     {
       "tag": "🚀 节点选择",
       "type": "selector",
@@ -189,26 +185,25 @@
       "default": "♻️ 自动选择"
     },
     {
-      "type": "urltest",
       "tag": "♻️ 自动选择",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
       "url": "http://www.apple.com/library/test/success.html",
       "interval": "3m",
-      "tolerance": 30,
-      "idle_timeout": "30m"
+      "tolerance": 30
     },
     {
-      "type": "selector",
       "tag": "🚀 手动切换",
+      "type": "selector",
       "outbounds": [
         "{all}"
       ]
     },
     {
-      "type": "selector",
       "tag": "📈 网络测试",
+      "type": "selector",
       "outbounds": [
         "🎯 全球直连",
         "🚀 手动切换"
@@ -216,8 +211,8 @@
       "default": "🚀 手动切换"
     },
     {
-      "type": "selector",
       "tag": "🤖 人工智能",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -232,8 +227,8 @@
       "default": "🇨🇳 台湾节点"
     },
     {
-      "type": "selector",
       "tag": "🎮 游戏服务",
+      "type": "selector",
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
@@ -250,8 +245,8 @@
       "default": "🎯 全球直连"
     },
     {
-      "type": "selector",
       "tag": "📲 电报消息",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -267,8 +262,8 @@
       "default": "🚀 节点选择"
     },
     {
-      "type": "selector",
       "tag": "📹 油管视频",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -284,8 +279,8 @@
       "default": "🚀 节点选择"
     },
     {
-      "type": "selector",
       "tag": "🎥 奈飞视频",
+      "type": "selector",
       "outbounds": [
         "{all}"
       ],
@@ -299,8 +294,8 @@
       ]
     },
     {
-      "type": "selector",
       "tag": "📽️ 迪士尼",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -316,8 +311,8 @@
       "default": "🚀 节点选择"
     },
     {
-      "type": "selector",
       "tag": "📺 Bigolive",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -333,8 +328,8 @@
       "default": "🇸🇬 狮城节点"
     },
     {
-      "type": "selector",
       "tag": "🎞️ Max",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -350,8 +345,8 @@
       "default": "🚀 节点选择"
     },
     {
-      "type": "selector",
       "tag": "🎬 Prime Video",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -367,8 +362,8 @@
       "default": "🚀 节点选择"
     },
     {
-      "type": "urltest",
       "tag": "🎵 Tiktok",
+      "type": "urltest",
       "outbounds": [
         "all"
       ],
@@ -386,8 +381,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "urltest",
       "tag": "📞 Talkatone",
+      "type": "urltest",
       "outbounds": [
         "all"
       ],
@@ -405,8 +400,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "selector",
       "tag": "🍎 Apple TV",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -422,8 +417,8 @@
       "default": "🚀 节点选择"
     },
     {
-      "type": "selector",
       "tag": "🍎 苹果服务",
+      "type": "selector",
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
@@ -440,8 +435,8 @@
       "default": "🎯 全球直连"
     },
     {
-      "type": "selector",
       "tag": "🪟 微软服务",
+      "type": "selector",
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
@@ -458,8 +453,8 @@
       "default": "🎯 全球直连"
     },
     {
-      "type": "selector",
       "tag": "🇬 谷歌服务",
+      "type": "selector",
       "outbounds": [
         "🚀 节点选择",
         "♻️ 自动选择",
@@ -475,15 +470,8 @@
       "default": "🚀 节点选择"
     },
     {
-      "tag": "GLOBAL",
-      "type": "selector",
-      "outbounds": [
-        "{all}"
-      ]
-    },
-    {
-      "type": "urltest",
       "tag": "🇭🇰 香港节点",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -501,8 +489,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "urltest",
       "tag": "🇨🇳 台湾节点",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -520,8 +508,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "urltest",
       "tag": "🇸🇬 狮城节点",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -539,8 +527,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "urltest",
       "tag": "🇺🇸 美国节点",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -558,8 +546,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "urltest",
       "tag": "🇯🇵 日本节点",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -577,8 +565,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "urltest",
       "tag": "🇰🇷 韩国节点",
+      "type": "urltest",
       "outbounds": [
         "{all}"
       ],
@@ -596,8 +584,8 @@
       "idle_timeout": "30m"
     },
     {
-      "type": "selector",
       "tag": "其他节点",
+      "type": "selector",
       "outbounds": [
         "{all}"
       ],
@@ -609,6 +597,17 @@
           ]
         }
       ]
+    },
+    {
+      "tag": "GLOBAL",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ]
+    },
+    {
+      "tag": "🎯 全球直连",
+      "type": "direct"
     }
   ],
   "route": {
@@ -621,6 +620,23 @@
       {
         "protocol": "dns",
         "action": "hijack-dns"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "GLOBAL"
+      },
+      {
+        "domain": [
+          "clash.razord.top",
+          "yacd.metacubex.one",
+          "yacd.haishan.me",
+          "d.metacubex.one"
+        ],
+        "outbound": "🎯 全球直连"
       },
       {
         "type": "logical",
@@ -646,21 +662,14 @@
           "customize_direct-rule",
           "talktonecdn-rule"
         ],
-        "action": "route",
         "outbound": "🎯 全球直连"
       },
       {
-        "rule_set": [
-          "customize_download-rule"
-        ],
-        "action": "route",
+        "rule_set": "customize_download-rule",
         "outbound": "🎯 全球直连"
       },
       {
-        "rule_set": [
-          "applications-rule"
-        ],
-        "action": "route",
+        "rule_set": "applications-rule",
         "outbound": "🎯 全球直连"
       },
       {
@@ -683,35 +692,22 @@
           "private-rule",
           "privateip-rule"
         ],
-        "action": "route",
         "outbound": "🎯 全球直连"
       },
       {
-        "rule_set": [
-          "docker-rule"
-        ],
-        "action": "route",
+        "rule_set": "docker-rule",
         "outbound": "🚀 节点选择"
       },
       {
-        "rule_set": [
-          "networktest-rule"
-        ],
-        "action": "route",
+        "rule_set": "networktest-rule",
         "outbound": "📈 网络测试"
       },
       {
-        "rule_set": [
-          "ai-rule"
-        ],
-        "action": "route",
+        "rule_set": "ai-rule",
         "outbound": "🤖 人工智能"
       },
       {
-        "rule_set": [
-          "games-rule"
-        ],
-        "action": "route",
+        "rule_set": "games-rule",
         "outbound": "🎮 游戏服务"
       },
       {
@@ -719,21 +715,14 @@
           "telegramsite-rule",
           "telegramip-rule"
         ],
-        "action": "route",
         "outbound": "📲 电报消息"
       },
       {
-        "rule_set": [
-          "youtube-rule"
-        ],
-        "action": "route",
+        "rule_set": "youtube-rule",
         "outbound": "📹 油管视频"
       },
       {
-        "rule_set": [
-          "bigolive-rule"
-        ],
-        "action": "route",
+        "rule_set": "bigolive-rule",
         "outbound": "📺 Bigolive"
       },
       {
@@ -741,63 +730,38 @@
           "netflix-rule",
           "netflixip-rule"
         ],
-        "action": "route",
         "outbound": "🎥 奈飞视频"
       },
       {
-        "rule_set": [
-          "disney-rule"
-        ],
-        "action": "route",
+        "rule_set": "disney-rule",
         "outbound": "📽️ 迪士尼"
       },
       {
-        "rule_set": [
-          "max-rule"
-        ],
-        "action": "route",
+        "rule_set": "max-rule",
         "outbound": "🎞️ Max"
       },
       {
-        "rule_set": [
-          "primevideo-rule"
-        ],
-        "action": "route",
+        "rule_set": "primevideo-rule",
         "outbound": "🎬 Prime Video"
       },
       {
-        "rule_set": [
-          "Tiktok-rule"
-        ],
-        "action": "route",
+        "rule_set": "Tiktok-rule",
         "outbound": "🎵 Tiktok"
       },
       {
-        "domain_suffix": [
-          "tktn.be"
-        ],
-        "action": "route",
+        "domain_suffix": "tktn.be",
         "outbound": "📞 Talkatone"
       },
       {
-        "rule_set": [
-          "appletv-rule"
-        ],
-        "action": "route",
+        "rule_set": "appletv-rule",
         "outbound": "🍎 Apple TV"
       },
       {
-        "rule_set": [
-          "apple-rule"
-        ],
-        "action": "route",
+        "rule_set": "apple-rule",
         "outbound": "🍎 苹果服务"
       },
       {
-        "rule_set": [
-          "microsoft-rule"
-        ],
-        "action": "route",
+        "rule_set": "microsoft-rule",
         "outbound": "🪟 微软服务"
       },
       {
@@ -805,14 +769,10 @@
           "google-rule",
           "googleip-rule"
         ],
-        "action": "route",
         "outbound": "🇬 谷歌服务"
       },
       {
-        "rule_set": [
-          "proxy-rule"
-        ],
-        "action": "route",
+        "rule_set": "proxy-rule",
         "outbound": "🚀 节点选择"
       },
       {
@@ -820,16 +780,7 @@
           "cn-rule",
           "cnip-rule"
         ],
-        "action": "route",
         "outbound": "🎯 全球直连"
-      },
-      {
-        "clash_mode": "direct",
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "GLOBAL"
       }
     ],
     "rule_set": [
