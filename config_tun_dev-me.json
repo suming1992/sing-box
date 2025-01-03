@@ -638,19 +638,102 @@
         "no_drop": false
       },
       {
-        "rule_set": "privateip-rule",
+        "rule_set": "applications-rule",
         "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": "private-rule",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": "ads-rule",
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
+      },
+      {
+        "rule_set": "networktest-rule",
+        "outbound": "📈 网络测试"
+      },
+      {
+        "rule_set": "ai-rule",
+        "outbound": "🤖 人工智能"
+      },
+      {
+        "rule_set": "games-cn-rule",
+        "outbound": "🎮 游戏服务"
+      },
+      {
+        "rule_set": "youtube-rule",
+        "outbound": "📹 油管视频"
+      },
+      {
+        "rule_set": "netflix-rule",
+        "outbound": "🎥 奈飞视频"
+      },
+      {
+        "rule_set": "disney-rule",
+        "outbound": "📽️ 迪士尼"
+      },
+      {
+        "rule_set": "bilibili-rule",
+        "outbound": "📺 哔哩哔哩"
+      },
+      {
+        "rule_set": "max-rule",
+        "outbound": "🎞️ Max"
+      },
+      {
+        "rule_set": "primevideo-rule",
+        "outbound": "🎬 Prime Video"
+      },
+      {
+        "rule_set": "tiktok-rule",
+        "outbound": "🎵 Tiktok"
+      },
+      {
+        "rule_set": "appletv-rule",
+        "outbound": "🍎 Apple TV"
+      },
+      {
+        "rule_set": "apple-cn-rule",
+        "outbound": "🍎 苹果服务"
+      },
+      {
+        "rule_set": "microsoft-cn-rule",
+        "outbound": "🪟 微软服务"
+      },
+      {
+        "rule_set": "google-cn-rule",
+        "outbound": "🇬 谷歌服务"
       },
       {
         "rule_set": "proxy-rule",
-        "outbound": "🚀 节点选择"
+        "outbound": "🧱 代理域名"
       },
       {
-        "rule_set": [
-          "cn-rule",
-          "cnip-rule"
-        ],
-        "outbound": "🎯 全球直连"
+        "rule_set": "cn-rule",
+        "outbound": "🇨🇳 直连域名"
+      },
+      {
+        "rule_set": "netflixip-rule",
+        "outbound": "🎥 奈飞视频",
+        "skip_resolve": true
+      },
+      {
+        "rule_set": "telegramip-rule",
+        "outbound": "📲 电报消息",
+        "skip_resolve": true
+      },
+      {
+        "rule_set": "privateip-rule",
+        "outbound": "🎯 全球直连",
+        "skip_resolve": true
+      },
+      {
+        "rule_set": "cnip-rule",
+        "outbound": "🇨🇳 直连 IP",
+        "skip_resolve": true
       }
     ],
     "final": "🐠 漏网之鱼",
