@@ -652,6 +652,28 @@
         "no_drop": false
       },
       {
+        "rule_set": "customize_download-rule",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": "customize_direct-rule",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "rule_set": "bigolive-rule",
+        "outbound": "📺 Bigolive"
+      },
+      {
+        "rule_set": "talkatoneads-rule",
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
+      },
+      {
+        "rule_set": "talkatonecdn-rule",
+        "outbound": "🎯 全球直连"
+      },
+      {
         "rule_set": "networktest-rule",
         "outbound": "📈 网络测试"
       },
@@ -735,6 +757,36 @@
     "final": "🐠 漏网之鱼",
     "auto_detect_interface": true,
     "rule_set": [
+      {
+        "type": "local",
+        "tag": "customize_download-rule",
+        "format": "source",
+        "path": "/etc/sing-box/ruleset/download.json"
+      },
+      {
+        "type": "local",
+        "tag": "customize_direct-rule",
+        "format": "source",
+        "path": "/etc/sing-box/ruleset/direct.json"
+      },
+      {
+        "type": "local",
+        "tag": "bigolive-rule",
+        "format": "binary",
+        "path": "/etc/sing-box/ruleset/bigo.srs"
+      },
+      {
+        "type": "local",
+        "tag": "talkatoneads-rule",
+        "format": "binary",
+        "path": "/etc/sing-box/ruleset/talkatoneads.srs"
+      },
+      {
+        "type": "local",
+        "tag": "talkatonecdn-rule",
+        "format": "binary",
+        "path": "/etc/sing-box/ruleset/talkatonecdn.srs"
+      },
       {
         "type": "remote",
         "tag": "ads-rule",
