@@ -28,6 +28,12 @@
         "detour": "🎯 全球直连"
       },
       {
+        "tag": "tencent-https-dns",
+        "address": "https://sm2.doh.pub/dns-query",
+        "address_resolver": "default-dns",
+        "detour": "🎯 全球直连"
+      },
+      {
         "tag": "google-https-dns",
         "address": "https://dns.google/dns-query",
         "address_resolver": "default-dns",
@@ -52,7 +58,7 @@
       {
         "rule_set": "cn-rule",
         "action": "route",
-        "server": "default-dns"
+        "server": "tencent-https-dns"
       },
       {
         "rule_set": "proxy-rule",
