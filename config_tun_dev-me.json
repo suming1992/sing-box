@@ -717,23 +717,19 @@
       },
       {
         "rule_set": "netflixip-rule",
-        "outbound": "🎥 奈飞视频",
-        "skip_resolve": true
+        "outbound": "🎥 奈飞视频"
       },
       {
         "rule_set": "telegramip-rule",
-        "outbound": "📲 电报消息",
-        "skip_resolve": true
+        "outbound": "📲 电报消息"
       },
       {
         "rule_set": "privateip-rule",
-        "outbound": "🎯 全球直连",
-        "skip_resolve": true
+        "outbound": "🎯 全球直连"
       },
       {
         "rule_set": "cnip-rule",
-        "outbound": "🇨🇳 直连 IP",
-        "skip_resolve": true
+        "outbound": "🇨🇳 直连 IP"
       }
     ],
     "final": "🐠 漏网之鱼",
