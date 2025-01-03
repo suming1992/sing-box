@@ -1,7 +1,7 @@
 {
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "warn",
     "output": "/etc/sing-box/box.log",
     "timestamp": true
   },
