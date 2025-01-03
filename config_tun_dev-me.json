@@ -329,16 +329,44 @@
     "rule_set": [
       {
         "type": "remote",
-        "tag": "privateip-rule",
+        "tag": "ads-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/privateip.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/ads.srs",
         "download_detour": "🎯 全球直连"
       },
       {
         "type": "remote",
-        "tag": "proxy-rule",
+        "tag": "ai-rule",
         "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/proxy.srs",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/ai.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "apple-cn-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/apple-cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "appletv-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/appletv.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "applications-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/applications.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "bilibili-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/bilibili.srs",
         "download_detour": "🎯 全球直连"
       },
       {
@@ -353,6 +381,111 @@
         "tag": "cnip-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/cnip.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "disney-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/disney.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "games-cn-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/games-cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "google-cn-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/google-cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "max-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/max.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "microsoft-cn-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/microsoft-cn.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "netflix-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/netflix.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "netflixip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/netflixip.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "networktest-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/networktest.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "primevideo-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/primevideo.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "private-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/private.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "privateip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/privateip.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "proxy-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/proxy.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "telegramip-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/telegramip.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "tiktok-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/tiktok.srs",
+        "download_detour": "🎯 全球直连"
+      },
+      {
+        "type": "remote",
+        "tag": "youtube-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/youtube.srs",
         "download_detour": "🎯 全球直连"
       }
     ]
