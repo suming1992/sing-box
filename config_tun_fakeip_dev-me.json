@@ -604,9 +604,7 @@
             "tag": "GLOBAL",
             "type": "selector",
             "outbounds": [
-                "🚀 节点选择",
-                "♻️ 自动选择",
-                "🚀 手动切换"
+                "{all}"
             ]
         },
         {
@@ -636,10 +634,6 @@
             {
                 "clash_mode": "Global",
                 "outbound": "GLOBAL"
-            },
-            {
-                "ip_is_private": true,
-                "outbound": "🎯 全球直连"
             },
             {
                 "domain": [
@@ -753,6 +747,10 @@
             {
                 "rule_set": "telegramip-rule",
                 "outbound": "📲 电报消息"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "🎯 全球直连"
             },
             {
                 "rule_set": "privateip-rule",
