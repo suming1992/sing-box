@@ -482,7 +482,7 @@
       "type": "selector",
       "tag": "🆎 广告拦截",
       "outbounds": [
-        "direct-out",
+        "🎯 全球直连",
         "block-out"
       ],
       "default": "block-out"
