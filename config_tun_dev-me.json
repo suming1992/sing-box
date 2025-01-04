@@ -56,6 +56,11 @@
         "server": "google-https-dns"
       },
       {
+        "rule_set": "customize_direct-rule",
+        "action": "route",
+        "server": "tencent-https-dns"
+      },
+      {
         "rule_set": "cn-rule",
         "action": "route",
         "server": "tencent-https-dns"
