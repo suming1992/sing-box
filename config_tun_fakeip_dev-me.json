@@ -23,6 +23,11 @@
     "dns": {
         "servers": [
             {
+                "tag": "default-dns",
+                "address": "218.85.157.99",
+                "detour": "🎯 全球直连"
+            },
+            {
                 "tag": "google-tls-dns",
                 "address": "tls://8.8.8.8/dns-query",
                 "detour": "♻️ 自动选择",
@@ -41,7 +46,7 @@
         "rules": [
             {
                 "outbound": "any",
-                "server": "aliyun-h3-dns",
+                "server": "default-dns",
                 "disable_cache": true
             },
             {
