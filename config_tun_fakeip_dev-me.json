@@ -82,6 +82,7 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
+        "independent_cache": true,
         "final": "google-tls-dns"
     },
     "inbounds": [
@@ -104,6 +105,7 @@
             "listen": "::",
             "listen_port": 2080,
             "tcp_fast_open": true,
+            "tcp_multi_path": true,
             "users": [],
             "set_system_proxy": false
         }
