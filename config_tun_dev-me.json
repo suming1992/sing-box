@@ -56,9 +56,14 @@
         "server": "google-https-dns"
       },
       {
+        "rule_set": "proxy-rule",
+        "action": "route",
+        "server": "google-https-dns"
+      },
+      {
         "rule_set": [
-          "cn-rule",
-          "customize_direct-rule"
+          "customize_direct-rule",
+          "cn-rule"
         ],
         "action": "route",
         "server": "aliyun-quic-dns"
