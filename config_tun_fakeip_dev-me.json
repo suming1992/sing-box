@@ -601,6 +601,15 @@
             ]
         },
         {
+            "tag": "GLOBAL",
+            "type": "selector",
+            "outbounds": [
+                "🚀 节点选择",
+                "♻️ 自动选择",
+                "🚀 手动切换"
+            ]
+        },
+        {
             "tag": "🎯 全球直连",
             "type": "direct"
         }
@@ -626,7 +635,7 @@
             },
             {
                 "clash_mode": "Global",
-                "outbound": "🚀 节点选择"
+                "outbound": "GLOBAL"
             },
             {
                 "ip_is_private": true,
