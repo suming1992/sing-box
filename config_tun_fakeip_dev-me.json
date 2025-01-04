@@ -93,7 +93,14 @@
             "auto_redirect": true,
             "strict_route": true,
             "domain_strategy": "prefer_ipv4",
-            "stack": "mixed"
+            "stack": "mixed",
+            "platform": {
+                "http_proxy": {
+                    "enabled": true,
+                    "server": "::",
+                    "server_port": 2080
+                }
+            }
         },
         {
             "type": "mixed",
