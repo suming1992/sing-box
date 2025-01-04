@@ -61,7 +61,6 @@
                     "customize_direct-rule",
                     "cn-rule"
                 ],
-                "action": "route",
                 "server": "aliyun-h3-dns"
             },
             {
