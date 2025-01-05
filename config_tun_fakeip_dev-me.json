@@ -756,27 +756,27 @@
             },
             {
                 "rule_set": "netflixip-rule",
-                "action": "no-resolve",
+                "action": "no_resolve",
                 "outbound": "🎥 奈飞视频"
             },
             {
                 "rule_set": "telegramip-rule",
-                "action": "no-resolve",
+                "action": "no_resolve",
                 "outbound": "📲 电报消息"
             },
             {
                 "ip_is_private": true,
-                "action": "no-resolve",
+                "action": "no_resolve",
                 "outbound": "🎯 全球直连"
             },
             {
                 "rule_set": "privateip-rule",
-                "action": "no-resolve",
+                "action": "no_resolve",
                 "outbound": "🎯 全球直连"
             },
             {
                 "rule_set": "cnip-rule",
-                "action": "no-resolve",
+                "action": "no_resolve",
                 "outbound": "🇨🇳 直连 IP"
             }
         ],
