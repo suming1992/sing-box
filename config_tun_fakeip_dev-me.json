@@ -633,21 +633,32 @@
                 "action": "sniff"
             },
             {
+                "ip_is_private": true,
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "privateip-rule",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "netflixip-rule",
+                "outbound": "🎥 奈飞视频"
+            },
+            {
+                "rule_set": "telegramip-rule",
+                "outbound": "📲 电报消息"
+            },
+            {
+                "rule_set": "cnip-rule",
+                "outbound": "🇨🇳 直连 IP"
+            },
+            {
                 "protocol": "dns",
                 "action": "hijack-dns"
             },
             {
-                "port": 443,
-                "network": "udp",
-                "action": "reject"
-            },
-            {
                 "clash_mode": "Direct",
                 "outbound": "🎯 全球直连"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "GLOBAL"
             },
             {
                 "domain": [
@@ -667,10 +678,6 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "rule_set": "ads-rule",
-                "action": "reject"
-            },
-            {
                 "rule_set": "customize_download-rule",
                 "outbound": "🎯 全球直连"
             },
@@ -679,8 +686,8 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "rule_set": "bigolive-rule",
-                "outbound": "📺 Bigolive"
+                "rule_set": "ads-rule",
+                "action": "reject"
             },
             {
                 "rule_set": "talkatoneads-rule",
@@ -703,6 +710,11 @@
                 "outbound": "🎮 游戏服务"
             },
             {
+                "port": 443,
+                "network": "udp",
+                "action": "reject"
+            },
+            {
                 "rule_set": "youtube-rule",
                 "outbound": "📹 油管视频"
             },
@@ -717,6 +729,10 @@
             {
                 "rule_set": "bilibili-rule",
                 "outbound": "📺 哔哩哔哩"
+            },
+            {
+                "rule_set": "bigolive-rule",
+                "outbound": "📺 Bigolive"
             },
             {
                 "rule_set": "max-rule",
@@ -755,24 +771,8 @@
                 "outbound": "🇨🇳 直连域名"
             },
             {
-                "rule_set": "netflixip-rule",
-                "outbound": "🎥 奈飞视频"
-            },
-            {
-                "rule_set": "telegramip-rule",
-                "outbound": "📲 电报消息"
-            },
-            {
-                "ip_is_private": true,
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "privateip-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "cnip-rule",
-                "outbound": "🇨🇳 直连 IP"
+                "clash_mode": "Global",
+                "outbound": "GLOBAL"
             }
         ],
         "auto_detect_interface": true,
