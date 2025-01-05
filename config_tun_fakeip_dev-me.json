@@ -633,26 +633,6 @@
                 "action": "sniff"
             },
             {
-                "ip_is_private": true,
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "privateip-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "netflixip-rule",
-                "outbound": "🎥 奈飞视频"
-            },
-            {
-                "rule_set": "telegramip-rule",
-                "outbound": "📲 电报消息"
-            },
-            {
-                "rule_set": "cnip-rule",
-                "outbound": "🇨🇳 直连 IP"
-            },
-            {
                 "protocol": "dns",
                 "action": "hijack-dns"
             },
@@ -769,6 +749,26 @@
             {
                 "rule_set": "cn-rule",
                 "outbound": "🇨🇳 直连域名"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "privateip-rule",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "netflixip-rule",
+                "outbound": "🎥 奈飞视频"
+            },
+            {
+                "rule_set": "telegramip-rule",
+                "outbound": "📲 电报消息"
+            },
+            {
+                "rule_set": "cnip-rule",
+                "outbound": "🇨🇳 直连 IP"
             },
             {
                 "clash_mode": "Global",
