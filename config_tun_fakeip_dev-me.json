@@ -130,7 +130,7 @@
                 "其他节点"
             ],
             "default": "♻️ 自动选择",
-            "interrupt_exist_connections": false
+            "interrupt_exist_connections": true
         },
         {
             "tag": "♻️ 自动选择",
