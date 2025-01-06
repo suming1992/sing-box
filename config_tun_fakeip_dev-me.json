@@ -39,7 +39,7 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "dns-fakeip",
+                "tag": "dns_fakeip",
                 "address": "fakeip"
             }
         ],
@@ -58,20 +58,8 @@
                 "server": "aliyun-h3-dns"
             },
             {
-                "rule_set": "fakeip-filter-rule",
-                "server": "google-tls-dns"
-            },
-            {
                 "rule_set": "proxy-rule",
                 "server": "google-tls-dns"
-            },
-            {
-                "rule_set": "proxy-rule",
-                "query_type": [
-                    "A",
-                    "AAAA"
-                ],
-                "server": "dns-fakeip"
             },
             {
                 "rule_set": [
@@ -79,6 +67,14 @@
                     "cn-rule"
                 ],
                 "server": "aliyun-h3-dns"
+            },
+            {
+                "rule_set": "proxy-rule",
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "server": "dns_fakeip"
             }
         ],
         "fakeip": {
@@ -86,6 +82,7 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
+        "independent_cache": true,
         "final": "google-tls-dns"
     },
     "inbounds": [
@@ -129,8 +126,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "♻️ 自动选择",
-            "interrupt_exist_connections": true
+            "default": "♻️ 自动选择"
         },
         {
             "tag": "♻️ 自动选择",
@@ -148,8 +144,7 @@
             "type": "selector",
             "outbounds": [
                 "{all}"
-            ],
-            "interrupt_exist_connections": true
+            ]
         },
         {
             "tag": "📈 网络测试",
@@ -158,8 +153,7 @@
                 "🎯 全球直连",
                 "🚀 手动切换"
             ],
-            "default": "🚀 手动切换",
-            "interrupt_exist_connections": true
+            "default": "🚀 手动切换"
         },
         {
             "tag": "🤖 人工智能",
@@ -175,8 +169,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🇨🇳 台湾节点",
-            "interrupt_exist_connections": true
+            "default": "🇨🇳 台湾节点"
         },
         {
             "tag": "🎮 游戏服务",
@@ -194,8 +187,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🎯 全球直连",
-            "interrupt_exist_connections": true
+            "default": "🎯 全球直连"
         },
         {
             "tag": "📲 电报消息",
@@ -212,8 +204,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "📹 油管视频",
@@ -230,8 +221,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "🎥 奈飞视频",
@@ -246,8 +236,7 @@
                         "SG|原生"
                     ]
                 }
-            ],
-            "interrupt_exist_connections": true
+            ]
         },
         {
             "tag": "📽️ 迪士尼",
@@ -264,8 +253,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "📺 哔哩哔哩",
@@ -283,8 +271,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🎯 全球直连",
-            "interrupt_exist_connections": true
+            "default": "🎯 全球直连"
         },
         {
             "tag": "📺 Bigolive",
@@ -301,8 +288,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🇸🇬 狮城节点",
-            "interrupt_exist_connections": true
+            "default": "🇸🇬 狮城节点"
         },
         {
             "tag": "🎞️ Max",
@@ -319,8 +305,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "🎬 Prime Video",
@@ -337,8 +322,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "🎵 Tiktok",
@@ -393,8 +377,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "🍎 苹果服务",
@@ -412,8 +395,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🎯 全球直连",
-            "interrupt_exist_connections": true
+            "default": "🎯 全球直连"
         },
         {
             "tag": "🪟 微软服务",
@@ -431,8 +413,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🎯 全球直连",
-            "interrupt_exist_connections": true
+            "default": "🎯 全球直连"
         },
         {
             "tag": "🇬 谷歌服务",
@@ -449,8 +430,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "🇨🇳 直连域名",
@@ -468,8 +448,7 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🎯 全球直连",
-            "interrupt_exist_connections": true
+            "default": "🎯 全球直连"
         },
         {
             "tag": "🇨🇳 直连 IP",
@@ -487,30 +466,16 @@
                 "🇰🇷 韩国节点",
                 "其他节点"
             ],
-            "default": "🎯 全球直连",
-            "interrupt_exist_connections": true
+            "default": "🎯 全球直连"
         },
         {
             "tag": "🧱 代理域名",
             "type": "selector",
             "outbounds": [
                 "🚀 节点选择",
-                "♻️ 自动选择",
-                "🚀 手动切换"
+                "🎯 全球直连"
             ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
-        },
-        {
-            "tag": "🧱 代理 IP",
-            "type": "selector",
-            "outbounds": [
-                "🚀 节点选择",
-                "♻️ 自动选择",
-                "🚀 手动切换"
-            ],
-            "default": "🚀 节点选择",
-            "interrupt_exist_connections": true
+            "default": "🚀 节点选择"
         },
         {
             "tag": "🇭🇰 香港节点",
@@ -639,27 +604,22 @@
                         "HK|香港|TW|台湾|SG|新加坡|US|美国|JP|日本|KR|韩国"
                     ]
                 }
-            ],
-            "interrupt_exist_connections": true
+            ]
         },
         {
             "tag": "🐠 漏网之鱼",
             "type": "selector",
             "outbounds": [
                 "🚀 节点选择",
-                "♻️ 自动选择",
-                "🚀 手动切换",
                 "🎯 全球直连"
-            ],
-            "interrupt_exist_connections": true
+            ]
         },
         {
             "tag": "GLOBAL",
             "type": "selector",
             "outbounds": [
                 "{all}"
-            ],
-            "interrupt_exist_connections": true
+            ]
         },
         {
             "tag": "🎯 全球直连",
@@ -716,6 +676,12 @@
             {
                 "rule_set": "talkatonecdn-rule",
                 "outbound": "🎯 全球直连"
+            },
+            {
+                "domain_suffix": [
+                    "tktn.be"
+                ],
+                "outbound": "📞 Talkatone"
             },
             {
                 "rule_set": "networktest-rule",
@@ -817,11 +783,6 @@
             {
                 "rule_set": "cnip-rule",
                 "outbound": "🇨🇳 直连 IP"
-            },
-            {
-                "rule_set": "cnip-rule",
-                "invert": true,
-                "outbound": "🧱 代理 IP"
             },
             {
                 "clash_mode": "Global",
@@ -930,14 +891,6 @@
                 "tag": "disney-rule",
                 "format": "binary",
                 "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/disney.srs",
-                "download_detour": "🎯 全球直连",
-                "update_interval": "12h"
-            },
-            {
-                "type": "remote",
-                "tag": "fakeip-filter-rule",
-                "format": "binary",
-                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/fakeip-filter.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             },
