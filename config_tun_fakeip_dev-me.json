@@ -91,6 +91,12 @@
     },
     "inbounds": [
         {
+            "type": "direct",
+            "tag": "direct-in",
+            "listen": "::",
+            "listen_port": 3333
+        },
+        {
             "type": "tun",
             "tag": "tun-in",
             "address": [
