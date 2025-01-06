@@ -23,9 +23,9 @@
     "dns": {
         "servers": [
             {
-                "tag": "cloudflare-https-dns",
-                "address": "https://1.1.1.1/dns-query",
-                "detour": "♻️ 自动选择"
+                "tag": "default-dns",
+                "address": "218.85.157.99",
+                "detour": "🎯 全球直连"
             },
             {
                 "tag": "google-tls-dns",
@@ -46,7 +46,7 @@
         "rules": [
             {
                 "outbound": "any",
-                "server": "cloudflare-https-dns",
+                "server": "default-dns",
                 "disable_cache": true
             },
             {
