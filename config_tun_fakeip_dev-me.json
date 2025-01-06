@@ -23,8 +23,8 @@
     "dns": {
         "servers": [
             {
-                "tag": "cloudflare-tls-dns",
-                "address": "tls://1.1.1.1/dns-query",
+                "tag": "cloudflare-https-dns",
+                "address": "https://1.1.1.1/dns-query",
                 "detour": "♻️ 自动选择"
             },
             {
@@ -46,7 +46,7 @@
         "rules": [
             {
                 "outbound": "any",
-                "server": "cloudflare-tls-dns",
+                "server": "cloudflare-https-dns",
                 "disable_cache": true
             },
             {
