@@ -76,20 +76,6 @@
             "listen_port": 8333
         },
         {
-            "type": "mixed",
-            "tag": "mixed-in",
-            "listen": "::",
-            "listen_port": 8330,
-            "udp_timeout": "300s",
-            "set_system_proxy": false
-        },
-        {
-            "type": "redirect",
-            "tag": "redirect-in",
-            "listen": "::",
-            "listen_port": 8331
-        },
-        {
             "type": "tproxy",
             "tag": "tproxy-in",
             "listen": "::",
