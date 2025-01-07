@@ -91,12 +91,34 @@
     },
     "inbounds": [
         {
-    "type": "tproxy",
-    "tag": "tproxy-in",
-    "listen": "::",
-    "listen_port": 7895,
-    "tcp_fast_open": true,
-    "udp_fragment": true
+            "type": "direct",
+            "tag": "dns-in",
+            "listen": "::",
+            "listen_port": 5333
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "::",
+            "listen_port": 5330,
+            "udp_timeout": "300s",
+            "set_system_proxy": false
+        },
+        {
+            "type": "redirect",
+            "tag": "redirect-in",
+            "listen": "::",
+            "listen_port": 5331,
+            "tcp_fast_open": true
+        },
+        {
+            "type": "tproxy",
+            "tag": "tproxy-in",
+            "listen": "::",
+            "listen_port": 5332,
+            "network": "udp",
+            "udp_timeout": "300s",
+            "udp_fragment": true
         }
     ],
     "outbounds": [
