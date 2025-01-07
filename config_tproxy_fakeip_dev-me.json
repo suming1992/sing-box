@@ -91,12 +91,6 @@
     },
     "inbounds": [
         {
-            "type": "direct",
-            "tag": "direct-in",
-            "listen": "::",
-            "listen_port": 8333
-        },
-        {
             "type": "tproxy",
             "tag": "tproxy-in",
             "listen": "::",
