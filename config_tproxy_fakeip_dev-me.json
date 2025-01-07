@@ -92,33 +92,18 @@
     "inbounds": [
         {
             "type": "direct",
-            "tag": "dns-in",
+            "tag": "direct-in",
             "listen": "::",
-            "listen_port": 5333
-        },
-        {
-            "type": "mixed",
-            "tag": "mixed-in",
-            "listen": "::",
-            "listen_port": 5330,
-            "udp_timeout": "300s",
-            "set_system_proxy": false
-        },
-        {
-            "type": "redirect",
-            "tag": "redirect-in",
-            "listen": "::",
-            "listen_port": 5331,
-            "tcp_fast_open": true
+            "listen_port": 8333
         },
         {
             "type": "tproxy",
             "tag": "tproxy-in",
             "listen": "::",
-            "listen_port": 5332,
-            "network": "udp",
-            "udp_timeout": "300s",
-            "udp_fragment": true
+            "listen_port": 8332,
+            "tcp_fast_open": false,
+            "udp_fragment": true,
+            "udp_timeout": "300s"
         }
     ],
     "outbounds": [
@@ -675,7 +660,6 @@
     "route": {
         "rules": [
             {
-                "inbound": "tun-in",
                 "action": "sniff"
             },
             {
@@ -842,6 +826,7 @@
         ],
         "auto_detect_interface": true,
         "final": "🐠 漏网之鱼",
+        "default_mark": 666,
         "rule_set": [
             {
                 "type": "local",
