@@ -80,7 +80,7 @@
             "tag": "tproxy-in",
             "listen": "::",
             "listen_port": 8332,
-            "network": "udp",
+            "udp_fragment": true,
             "udp_timeout": "300s"
         }
     ],
