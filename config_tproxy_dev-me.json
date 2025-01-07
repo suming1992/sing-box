@@ -87,8 +87,7 @@
             "type": "redirect",
             "tag": "redirect-in",
             "listen": "::",
-            "listen_port": 8331,
-            "tcp_fast_open": true
+            "listen_port": 8331
         },
         {
             "type": "tproxy",
@@ -96,8 +95,7 @@
             "listen": "::",
             "listen_port": 8332,
             "network": "udp",
-            "udp_timeout": "300s",
-            "udp_fragment": true
+            "udp_timeout": "300s"
         }
     ],
     "outbounds": [
