@@ -96,7 +96,7 @@
     "listen": "::",
     "listen_port": 7895,
     "tcp_fast_open": true,
-    "udp_fragment": true,
+    "udp_fragment": true
         }
     ],
     "outbounds": [
