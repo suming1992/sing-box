@@ -101,7 +101,7 @@
             "tag": "tproxy-in",
             "listen": "::",
             "listen_port": 8332,
-            "tcp_fast_open": false,
+            "tcp_fast_open": true,
             "udp_fragment": true,
             "udp_timeout": "300s"
         }
