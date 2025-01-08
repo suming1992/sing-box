@@ -639,16 +639,16 @@
             ]
         },
         {
+            "tag": "🎯 全球直连",
+            "type": "direct"
+        },
+        {
             "tag": "GLOBAL",
             "type": "selector",
             "outbounds": [
                 "{all}"
             ],
             "interrupt_exist_connections": true
-        },
-        {
-            "tag": "🎯 全球直连",
-            "type": "direct"
         }
     ],
     "route": {
@@ -663,6 +663,23 @@
             {
                 "clash_mode": "Direct",
                 "outbound": "🎯 全球直连"
+            },
+            {
+                "port": 853,
+                "network": "tcp",
+                "action": "reject"
+            },
+            {
+                "port": [
+                    443,
+                    853
+                ],
+                "network": "udp",
+                "action": "reject"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "GLOBAL"
             },
             {
                 "domain": [
@@ -718,19 +735,6 @@
             {
                 "rule_set": "games-cn-rule",
                 "outbound": "🎮 游戏服务"
-            },
-            {
-                "port": 853,
-                "network": "tcp",
-                "action": "reject"
-            },
-            {
-                "port": [
-                    443,
-                    853
-                ],
-                "network": "udp",
-                "action": "reject"
             },
             {
                 "rule_set": "youtube-rule",
@@ -812,10 +816,6 @@
                 "rule_set": "cnip-rule",
                 "invert": true,
                 "outbound": "🧱 代理 IP"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "GLOBAL"
             }
         ],
         "auto_detect_interface": true,
