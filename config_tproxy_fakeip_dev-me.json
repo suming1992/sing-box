@@ -99,7 +99,7 @@
                     "customize_direct-rule",
                     "cn-rule"
                 ],
-                "server": "aliyun-h3-dns"
+                "server": "aliyun-quic-dns"
             }
         ],
         "fakeip": {
