@@ -46,16 +46,16 @@
         ],
         "rules": [
             {
-                "outbound": "any",
-                "server": "default-dns",
-                "disable_cache": true
-            },
-            {
                 "query_type": [
                     "HTTPS",
                     "SVCB"
                 ],
                 "action": "reject"
+            },
+            {
+                "outbound": "any",
+                "server": "default-dns",
+                "disable_cache": true
             },
             {
                 "clash_mode": "Direct",
@@ -74,10 +74,6 @@
                 "invert": true,
                 "rewrite_ttl": 10,
                 "server": "aliyun-quic-dns"
-            },
-            {
-                "rule_set": "proxy-rule",
-                "server": "google-https-dns"
             },
             {
                 "server": "dns-fakeip",
