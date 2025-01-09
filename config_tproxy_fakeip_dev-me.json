@@ -28,8 +28,8 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "google-h3-dns",
-                "address": "h3://8.8.8.8/dns-query",
+                "tag": "google-https-dns",
+                "address": "https://8.8.8.8/dns-query",
                 "detour": "♻️ 自动选择",
                 "client_subnet": "1.1.0.0"
             },
@@ -52,7 +52,7 @@
             },
             {
                 "clash_mode": "Global",
-                "server": "google-h3-dns"
+                "server": "google-https-dns"
             },
             {
                 "clash_mode": "Direct",
@@ -60,11 +60,11 @@
             },
             {
                 "rule_set": "fakeip-filter-rule",
-                "server": "google-h3-dns"
+                "server": "google-https-dns"
             },
             {
                 "rule_set": "proxy-rule",
-                "server": "google-h3-dns"
+                "server": "google-https-dns"
             },
             {
                 "rule_set": "proxy-rule",
@@ -89,7 +89,7 @@
         },
         "client_subnet": "1.1.0.0",
         "independent_cache": true,
-        "final": "google-h3-dns"
+        "final": "google-https-dns"
     },
     "inbounds": [
         {
