@@ -28,18 +28,20 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "google-tls-dns",
-                "address": "tls://8.8.8.8/dns-query",
+                "tag": "google-https-dns",
+                "address": "https://dns.google/dns-query",
+                "address_resolver": "default-dns",
                 "detour": "♻️ 自动选择",
                 "client_subnet": "1.1.0.0"
             },
             {
-                "tag": "aliyun-h3-dns",
-                "address": "h3://223.5.5.5/dns-query",
+                "tag": "aliyun-quic-dns",
+                "address": "quic://dns.alidns.com:853",
+                "address_resolver": "default-dns",
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "dns_fakeip",
+                "tag": "dns-fakeip",
                 "address": "fakeip"
             }
         ],
@@ -51,19 +53,19 @@
             },
             {
                 "clash_mode": "Global",
-                "server": "google-tls-dns"
+                "server": "google-https-dns"
             },
             {
                 "clash_mode": "Direct",
-                "server": "aliyun-h3-dns"
+                "server": "aliyun-quic-dns"
             },
             {
                 "rule_set": "fakeip-filter-rule",
-                "server": "google-tls-dns"
+                "server": "google-https-dns"
             },
             {
                 "rule_set": "proxy-rule",
-                "server": "google-tls-dns"
+                "server": "google-https-dns"
             },
             {
                 "rule_set": "proxy-rule",
@@ -87,7 +89,8 @@
             "inet6_range": "fc00::/18"
         },
         "client_subnet": "1.1.0.0",
-        "final": "google-tls-dns"
+        "independent_cache": true,
+        "final": "google-https-dns"
     },
     "inbounds": [
         {
@@ -681,15 +684,7 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "port": 853,
-                "network": "tcp",
-                "action": "reject"
-            },
-            {
-                "port": [
-                    443,
-                    853
-                ],
+                "port": 443,
                 "network": "udp",
                 "action": "reject"
             },
