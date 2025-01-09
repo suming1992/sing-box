@@ -66,14 +66,14 @@
                 "server": "google-https-dns"
             },
             {
-                "rule_set": [
-                    "fakeip-filter-rule",
-                    "geosite-cn-rule",
-                    "customize_download-rule",
-                    "customize_direct-rule"
-                ],
-                "server": "aliyun-quic-dns",
-                "rewrite_ttl": 10
+                "rule_set": "proxy-rule",
+                "server": "dns-fakeip"
+            },
+            {
+                "rule_set": "proxy-rule",
+                "invert": true,
+                "rewrite_ttl": 10,
+                "server": "aliyun-quic-dns"
             },
             {
                 "server": "dns-fakeip",
@@ -1034,14 +1034,6 @@
                 "tag": "youtube-rule",
                 "format": "binary",
                 "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/youtube.srs",
-                "download_detour": "🎯 全球直连",
-                "update_interval": "12h"
-            },
-            {
-                "type": "remote",
-                "tag": "geosite-cn-rule",
-                "format": "binary",
-                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             }
