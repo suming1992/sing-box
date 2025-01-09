@@ -51,7 +51,10 @@
                 "disable_cache": true
             },
             {
-                "query_type": "HTTPS",
+                "query_type": [
+                    "HTTPS",
+                    "SVCB"
+                ],
                 "action": "reject"
             },
             {
@@ -68,22 +71,21 @@
             },
             {
                 "rule_set": "proxy-rule",
-                "server": "google-https-dns"
+                "invert": true,
+                "rewrite_ttl": 10,
+                "server": "aliyun-quic-dns"
             },
             {
                 "rule_set": "proxy-rule",
+                "server": "google-https-dns"
+            },
+            {
+                "server": "dns-fakeip",
+                "rewrite_ttl": 1,
                 "query_type": [
                     "A",
                     "AAAA"
-                ],
-                "server": "dns-fakeip"
-            },
-            {
-                "rule_set": [
-                    "customize_direct-rule",
-                    "cn-rule"
-                ],
-                "server": "aliyun-quic-dns"
+                ]
             }
         ],
         "fakeip": {
@@ -91,7 +93,6 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
-        "final": "google-https-dns",
         "client_subnet": "1.1.0.0",
         "independent_cache": true
     },
@@ -101,7 +102,8 @@
             "tag": "tproxy-in",
             "listen": "::",
             "listen_port": 8332,
-            "tcp_fast_open": true
+            "tcp_fast_open": true,
+            "udp_fragment": true
         }
     ],
     "outbounds": [
