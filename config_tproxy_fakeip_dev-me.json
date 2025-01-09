@@ -661,6 +661,18 @@
                 "action": "hijack-dns"
             },
             {
+                "ip_is_private": true,
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "private-rule",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "privateip-rule",
+                "outbound": "🎯 全球直连"
+            },
+            {
                 "clash_mode": "Direct",
                 "outbound": "🎯 全球直连"
             },
@@ -692,10 +704,6 @@
             },
             {
                 "rule_set": "applications-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "private-rule",
                 "outbound": "🎯 全球直连"
             },
             {
@@ -791,14 +799,6 @@
             {
                 "rule_set": "cn-rule",
                 "outbound": "🇨🇳 直连域名"
-            },
-            {
-                "ip_is_private": true,
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "privateip-rule",
-                "outbound": "🎯 全球直连"
             },
             {
                 "rule_set": "netflixip-rule",
