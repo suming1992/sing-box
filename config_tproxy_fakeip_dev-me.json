@@ -70,8 +70,7 @@
                 "server": "aliyun-quic-dns"
             },
             {
-                "rule_set": "geosite-geolocation-!cn",
-                "invert": true,
+                "rule_set": "geosite-cn-rule",
                 "server": "aliyun-quic-dns"
             },
             {
@@ -1038,9 +1037,9 @@
             },
             {
                 "type": "remote",
-                "tag": "geosite-geolocation-!cn",
+                "tag": "geosite-cn-rule",
                 "format": "binary",
-                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             }
