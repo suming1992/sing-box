@@ -24,7 +24,7 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "address": "218.85.157.99",
+                "address": "223.5.5.5",
                 "detour": "🎯 全球直连"
             },
             {
@@ -51,12 +51,16 @@
                 "disable_cache": true
             },
             {
-                "clash_mode": "Global",
-                "server": "google-https-dns"
+                "query_type": "HTTPS",
+                "action": "reject"
             },
             {
                 "clash_mode": "Direct",
                 "server": "aliyun-quic-dns"
+            },
+            {
+                "clash_mode": "Global",
+                "server": "google-https-dns"
             },
             {
                 "rule_set": "fakeip-filter-rule",
@@ -101,6 +105,10 @@
         }
     ],
     "outbounds": [
+        {
+            "tag": "🎯 全球直连",
+            "type": "direct"
+        },
         {
             "tag": "🚀 节点选择",
             "type": "selector",
@@ -639,10 +647,6 @@
             ]
         },
         {
-            "tag": "🎯 全球直连",
-            "type": "direct"
-        },
-        {
             "tag": "GLOBAL",
             "type": "selector",
             "outbounds": [
@@ -812,7 +816,6 @@
         ],
         "auto_detect_interface": true,
         "final": "🐠 漏网之鱼",
-        "default_mark": 666,
         "rule_set": [
             {
                 "type": "local",
