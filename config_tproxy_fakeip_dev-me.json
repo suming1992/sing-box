@@ -127,7 +127,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -343,7 +343,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -362,7 +362,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -514,7 +514,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -533,7 +533,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -552,7 +552,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -571,7 +571,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -590,7 +590,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
@@ -609,7 +609,7 @@
             ],
             "url": "http://www.apple.com/library/test/success.html",
             "interval": "1m",
-            "tolerance": 30,
+            "tolerance": 20,
             "interrupt_exist_connections": false
         },
         {
