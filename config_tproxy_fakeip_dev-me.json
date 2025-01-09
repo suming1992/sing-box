@@ -70,7 +70,12 @@
                 "server": "aliyun-quic-dns"
             },
             {
-                "rule_set": "geosite-cn-rule",
+                "rule_set": "proxy-rule",
+                "server": "dns-fakeip"
+            },
+            {
+                "rule_set": "proxy-rule",
+                "invert": true,
                 "server": "aliyun-quic-dns"
             },
             {
