@@ -24,7 +24,7 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "address": "119.29.29.29",
+                "address": "218.85.157.99",
                 "detour": "🎯 全球直连"
             },
             {
@@ -70,7 +70,8 @@
                 "server": "aliyun-quic-dns"
             },
             {
-                "rule_set": "geosite-cn-rule",
+                "rule_set": "geosite-geolocation-!cn",
+                "invert": true,
                 "server": "aliyun-quic-dns"
             },
             {
@@ -1037,9 +1038,9 @@
             },
             {
                 "type": "remote",
-                "tag": "geosite-cn-rule",
+                "tag": "geosite-geolocation-!cn",
                 "format": "binary",
-                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             }
