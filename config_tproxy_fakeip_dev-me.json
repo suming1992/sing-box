@@ -70,9 +70,7 @@
                 "server": "aliyun-quic-dns"
             },
             {
-                "rule_set": "proxy-rule",
-                "invert": true,
-                "rewrite_ttl": 10,
+                "rule_set": "geosite-cn-rule",
                 "server": "aliyun-quic-dns"
             },
             {
@@ -1034,6 +1032,14 @@
                 "tag": "youtube-rule",
                 "format": "binary",
                 "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/youtube.srs",
+                "download_detour": "🎯 全球直连",
+                "update_interval": "12h"
+            },
+            {
+                "type": "remote",
+                "tag": "geosite-cn-rule",
+                "format": "binary",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             }
