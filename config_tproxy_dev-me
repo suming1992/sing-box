@@ -38,10 +38,6 @@
                 "address": "quic://dns.alidns.com:853",
                 "address_resolver": "default-dns",
                 "detour": "🎯 全球直连"
-            },
-            {
-                "tag": "dns-fakeip",
-                "address": "fakeip"
             }
         ],
         "rules": [
