@@ -28,6 +28,13 @@
                 "detour": "🎯 全球直连"
             },
             {
+                "tag": "adguard-quic-dns",
+                "address": "quic://dns.adguard.com",
+                "address_resolver": "default-dns",
+                "detour": "♻️ 自动选择",
+                "client_subnet": "1.1.0.0"
+            },
+            {
                 "tag": "google-https-dns",
                 "address": "https://dns.google/dns-query",
                 "address_resolver": "default-dns",
@@ -53,7 +60,7 @@
             },
             {
                 "clash_mode": "Global",
-                "server": "google-https-dns"
+                "server": "adguard-quic-dns"
             },
             {
                 "clash_mode": "Direct",
@@ -61,11 +68,23 @@
             },
             {
                 "rule_set": "fakeip-filter-rule",
+                "server": "adguard-quic-dns"
+            },
+            {
+                "rule_set": "google-cn-rule",
                 "server": "google-https-dns"
             },
             {
+                "rule_set": "google-cn-rule",
+                "query_type": [
+                    "A",
+                    "AAAA"
+                ],
+                "server": "dns-fakeip"
+            },
+            {
                 "rule_set": "proxy-rule",
-                "server": "google-https-dns"
+                "server": "adguard-quic-dns"
             },
             {
                 "rule_set": "proxy-rule",
@@ -90,7 +109,7 @@
         },
         "client_subnet": "1.1.0.0",
         "independent_cache": true,
-        "final": "google-https-dns"
+        "final": "adguard-quic-dns"
     },
     "inbounds": [
         {
