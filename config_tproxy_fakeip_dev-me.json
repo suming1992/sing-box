@@ -24,7 +24,7 @@
         "servers": [
             {
                 "tag": "default-dns",
-                "address": "quci://223.5.5.5",
+                "address": "119.29.29.29",
                 "detour": "🎯 全球直连"
             },
             {
@@ -56,7 +56,7 @@
             },
             {
                 "clash_mode": "Direct",
-                "server": "default-dns"
+                "server": "aliyun-quic-dns"
             },
             {
                 "clash_mode": "Global",
@@ -64,7 +64,7 @@
             },
             {
                 "rule_set": "fakeip-filter-rule",
-                "server": "google-https-dns"
+                "server": "aliyun-quic-dns"
             },
             {
                 "rule_set": "proxy-rule",
@@ -83,7 +83,7 @@
                     "customize_direct-rule",
                     "cn-rule"
                 ],
-                "server": "default-dns"
+                "server": "aliyun-quic-dns"
             }
         ],
         "fakeip": {
@@ -91,9 +91,9 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
+        "final": "google-https-dns",
         "client_subnet": "1.1.0.0",
-        "independent_cache": true,
-        "final": "google-https-dns"
+        "independent_cache": true
     },
     "inbounds": [
         {
