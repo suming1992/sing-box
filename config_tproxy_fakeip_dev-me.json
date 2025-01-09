@@ -66,17 +66,14 @@
                 "server": "google-https-dns"
             },
             {
-                "rule_set": "fakeip-filter-rule",
-                "server": "aliyun-quic-dns"
-            },
-            {
-                "rule_set": "proxy-rule",
-                "server": "dns-fakeip"
-            },
-            {
-                "rule_set": "proxy-rule",
-                "invert": true,
-                "server": "aliyun-quic-dns"
+                "rules": [
+                    "fakeip-filter-rule",
+                    "geosite-cn-rule",
+                    "customize_download-rule",
+                    "customize_direct-rule"
+                ],
+                "server": "aliyun-quic-dns",
+                "rewrite_ttl": 10
             },
             {
                 "server": "dns-fakeip",
