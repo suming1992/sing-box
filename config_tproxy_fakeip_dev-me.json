@@ -673,6 +673,10 @@
                 "outbound": "🎯 全球直连"
             },
             {
+                "rule_set": "ads-rule",
+                "action": "reject"
+            },
+            {
                 "clash_mode": "Direct",
                 "outbound": "🎯 全球直连"
             },
@@ -713,10 +717,6 @@
             {
                 "rule_set": "customize_direct-rule",
                 "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "ads-rule",
-                "action": "reject"
             },
             {
                 "rule_set": "talkatoneads-rule",
