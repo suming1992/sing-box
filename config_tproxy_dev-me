@@ -28,15 +28,13 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "google-https-dns",
-                "address": "https://8.8.8.8/dns-query",
-                "detour": "♻️ 自动选择",
-                "client_subnet": "1.1.0.0"
+                "tag": "google-tls-dns",
+                "address": "tls://8.8.8.8",
+                "detour": "♻️ 自动选择"
             },
             {
                 "tag": "aliyun-quic-dns",
-                "address": "quic://dns.alidns.com:853",
-                "address_resolver": "default-dns",
+                "address": "quic://223.5.5.5",
                 "detour": "🎯 全球直连"
             }
         ],
@@ -59,24 +57,30 @@
             },
             {
                 "clash_mode": "Global",
-                "server": "google-https-dns"
+                "server": "google-tls-dns"
             },
             {
-                "rule_set": [
-                    "fakeip-filter-rule",
-                    "geosite-cn-rule",
-                    "customize_download-rule",
-                    "customize_direct-rule"
-                ],
+                "rule_set": "cn-rule",
                 "server": "aliyun-quic-dns"
             },
             {
-                "rule_set": "proxy-cn",
-                "server": "google-https-dns"
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "proxy-rule",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "cnip-rule"
+                    }
+                ],
+                "server": "google-tls-dns",
+                "client_subnet": "1.1.0.0/24"
             }
         ],
-        "final": "google-https-dns",
-        "client_subnet": "1.1.0.0",
+        "final": "google-tls-dns",
+        "client_subnet": "1.1.0.0/24",
         "independent_cache": true
     },
     "inbounds": [
@@ -654,14 +658,6 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "rule_set": "private-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "privateip-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
                 "rule_set": "ads-rule",
                 "action": "reject"
             },
@@ -670,13 +666,25 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "port": 443,
-                "network": "udp",
-                "action": "reject"
-            },
-            {
                 "clash_mode": "Global",
                 "outbound": "GLOBAL"
+            },
+                        {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
+                    }
+                ],
+                "action": "reject"
             },
             {
                 "domain": [
@@ -801,7 +809,6 @@
         ],
         "auto_detect_interface": true,
         "final": "🐠 漏网之鱼",
-        "default_mark": 666,
         "rule_set": [
             {
                 "type": "local",
@@ -1022,14 +1029,6 @@
                 "tag": "youtube-rule",
                 "format": "binary",
                 "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/youtube.srs",
-                "download_detour": "🎯 全球直连",
-                "update_interval": "12h"
-            },
-            {
-                "type": "remote",
-                "tag": "geosite-cn-rule",
-                "format": "binary",
-                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             }
