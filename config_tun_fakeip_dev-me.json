@@ -28,8 +28,8 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "google-https-dns",
-                "address": "https://8.8.8.8/dns-query",
+                "tag": "google-tls-dns",
+                "address": "tls://8.8.8.8",
                 "detour": "♻️ 自动选择"
             },
             {
@@ -62,7 +62,7 @@
             },
             {
                 "clash_mode": "Global",
-                "server": "google-https-dns"
+                "server": "google-tls-dns"
             },
             {
                 "rule_set": "cn-rule",
@@ -80,7 +80,7 @@
                         "rule_set": "cnip-rule"
                     }
                 ],
-                "server": "google-https-dns",
+                "server": "google-tls-dns",
                 "client_subnet": "1.1.0.0/24"
             },
             {
@@ -106,6 +106,10 @@
             "address": [
                 "172.19.0.1/30",
                 "fd00::1/126"
+            ],
+            "route_exclude_address": [
+                "192.168.0.0/16",
+                "fc00::/7"
             ],
             "mtu": 1492,
             "auto_route": true,
@@ -686,8 +690,37 @@
                 "action": "hijack-dns"
             },
             {
+                "ip_is_private": true,
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "ads-rule",
+                "action": "reject"
+            },
+            {
                 "clash_mode": "Direct",
                 "outbound": "🎯 全球直连"
+            },
+            {
+                "clash_mode": "Global",
+                "outbound": "GLOBAL"
+            },
+            {
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
+                    }
+                ],
+                "action": "reject"
             },
             {
                 "domain": [
@@ -703,20 +736,12 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "rule_set": "private-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
                 "rule_set": "customize_download-rule",
                 "outbound": "🎯 全球直连"
             },
             {
                 "rule_set": "customize_direct-rule",
                 "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "ads-rule",
-                "action": "reject"
             },
             {
                 "rule_set": "talkatoneads-rule",
@@ -743,19 +768,6 @@
             {
                 "rule_set": "games-cn-rule",
                 "outbound": "🎮 游戏服务"
-            },
-            {
-                "port": 853,
-                "network": "tcp",
-                "action": "reject"
-            },
-            {
-                "port": [
-                    443,
-                    853
-                ],
-                "network": "udp",
-                "action": "reject"
             },
             {
                 "rule_set": "youtube-rule",
@@ -814,14 +826,6 @@
                 "outbound": "🇨🇳 直连域名"
             },
             {
-                "ip_is_private": true,
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "privateip-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
                 "rule_set": "netflixip-rule",
                 "outbound": "🎥 奈飞视频"
             },
@@ -837,10 +841,6 @@
                 "rule_set": "cnip-rule",
                 "invert": true,
                 "outbound": "🧱 代理 IP"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "GLOBAL"
             }
         ],
         "auto_detect_interface": true,
