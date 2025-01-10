@@ -35,16 +35,13 @@
         ],
         "rules": [
             {
-                "query_type": [
-                    "HTTPS",
-                    "SVCB"
-                ],
-                "action": "reject"
-            },
-            {
                 "outbound": "any",
                 "server": "default-dns",
                 "disable_cache": true
+            },
+            {
+                "query_type": "HTTPS",
+                "action": "reject"
             },
             {
                 "clash_mode": "Direct",
