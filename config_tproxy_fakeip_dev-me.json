@@ -1,7 +1,7 @@
 {
     "log": {
         "disabled": false,
-        "level": "fatal",
+        "level": "warn",
         "output": "/etc/sing-box/box.log",
         "timestamp": true
     },
@@ -672,14 +672,6 @@
             },
             {
                 "ip_is_private": true,
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "private-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "privateip-rule",
                 "outbound": "🎯 全球直连"
             },
             {
