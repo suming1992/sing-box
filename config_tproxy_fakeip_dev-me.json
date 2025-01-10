@@ -683,6 +683,10 @@
                 "outbound": "🎯 全球直连"
             },
             {
+                "clash_mode": "Global",
+                "outbound": "GLOBAL"
+            },
+                        {
                 "type": "logical",
                 "mode": "or",
                 "rules": [
@@ -697,11 +701,7 @@
                         "protocol": "stun"
                     }
                 ],
-                "outbound": "block"
-            },
-            {
-                "clash_mode": "Global",
-                "outbound": "GLOBAL"
+                "action": "reject"
             },
             {
                 "domain": [
