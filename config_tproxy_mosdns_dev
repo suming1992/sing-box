@@ -28,7 +28,7 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "mosdns",
+                "tag": "mos-dns",
                 "address": "127.0.0.1:5335",
                 "detour": "🎯 全球直连"
             }
@@ -53,10 +53,18 @@
             {
                 "clash_mode": "Global",
                 "server": "google-https-dns"
+            },
+            {
+                "clash_mode": "cn-rule",
+                "server": "mos-dns"
+            },
+            {
+                "clash_mode": "proxy-rule",
+                "server": "mos-dns"
             }
         ],
         "disable_cache": false,
-        "final": "mosdns"
+        "final": "mos-dns"
     },
     "inbounds": [
         {
