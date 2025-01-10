@@ -81,7 +81,7 @@
                         "rule_set": "cnip-rule"
                     }
                 ],
-                "server": "ggoogle-https-dns",
+                "server": "google-https-dns",
                 "client_subnet": "1.1.0.0/24"
             },
             {
