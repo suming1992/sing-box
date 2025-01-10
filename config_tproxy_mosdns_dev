@@ -59,11 +59,7 @@
             },
             {
                 "rule_set": "cn-rule",
-                "server": "mos-dns"
-            },
-            {
-                "rule_set": "proxy-rule",
-                "server": "mos-dns"
+                "server": "aliyun-quic-dns"
             }
         ],
         "disable_cache": true,
