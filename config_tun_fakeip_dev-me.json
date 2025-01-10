@@ -39,7 +39,7 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "dns_fakeip",
+                "tag": "dns-fakeip",
                 "address": "fakeip"
             }
         ],
@@ -80,7 +80,7 @@
                         "rule_set": "cnip-rule"
                     }
                 ],
-                "server": "ggoogle-https-dns",
+                "server": "google-https-dns",
                 "client_subnet": "1.1.0.0/24"
             },
             {
