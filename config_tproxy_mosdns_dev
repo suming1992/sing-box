@@ -31,6 +31,12 @@
                 "tag": "mos-dns",
                 "address": "127.0.0.1:5335",
                 "detour": "🎯 全球直连"
+            },
+            {
+                "tag": "aliyun-quic-dns",
+                "address": "quic://dns.alidns.com:853",
+                "address_resolver": "default-dns",
+                "detour": "direct-out"
             }
         ],
         "rules": [
@@ -52,11 +58,11 @@
                 "server": "google-https-dns"
             },
             {
-                "clash_mode": "cn-rule",
+                "rule_set": "cn-rule",
                 "server": "mos-dns"
             },
             {
-                "clash_mode": "proxy-rule",
+                "rule_set": "proxy-rule",
                 "server": "mos-dns"
             }
         ],
