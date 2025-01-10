@@ -15,7 +15,7 @@
             "default_mode": "Rule"
         },
         "cache_file": {
-            "enabled": true,
+            "enabled": false,
             "path": "/etc/sing-box/cache.db",
             "store_fakeip": false
         }
@@ -55,6 +55,7 @@
                 "server": "google-https-dns"
             }
         ],
+        "disable_cache": false,
         "final": "mosdns"
     },
     "inbounds": [
