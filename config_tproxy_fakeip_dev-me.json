@@ -29,8 +29,8 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "tag": "google-https-dns",
-                "address": "https://8.8.8.8/dns-query",
+                "tag": "google-tls-dns",
+                "address": "tls://8.8.8.8/dns-query",
                 "detour": "♻️ 自动选择"
             },
             {
@@ -63,7 +63,7 @@
             },
             {
                 "clash_mode": "Global",
-                "server": "google-https-dns"
+                "server": "google-tls-dns"
             },
             {
                 "rule_set": "cn-rule",
@@ -81,7 +81,7 @@
                         "rule_set": "cnip-rule"
                     }
                 ],
-                "server": "google-https-dns",
+                "server": "google-tls-dns",
                 "client_subnet": "1.1.0.0/24"
             },
             {
