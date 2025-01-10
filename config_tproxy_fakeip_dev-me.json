@@ -97,6 +97,7 @@
             "inet6_range": "fc00::/18"
         },
         "final": "google-tls-dns",
+        "client_subnet": "1.1.0.0/24"
         "independent_cache": true
     },
     "inbounds": [
