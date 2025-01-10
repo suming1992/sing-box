@@ -35,7 +35,6 @@
             {
                 "tag": "aliyun-quic-dns",
                 "address": "quic://223.5.5.5",
-                "address_resolver": "default-dns",
                 "detour": "🎯 全球直连"
             },
             {
