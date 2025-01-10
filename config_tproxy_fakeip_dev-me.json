@@ -17,6 +17,7 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
+            "store_rdrc": true,
             "store_fakeip": true
         }
     },
@@ -30,8 +31,7 @@
             {
                 "tag": "google-https-dns",
                 "address": "https://8.8.8.8/dns-query",
-                "detour": "♻️ 自动选择",
-                "client_subnet": "1.1.0.0"
+                "detour": "♻️ 自动选择"
             },
             {
                 "tag": "aliyun-quic-dns",
@@ -66,14 +66,23 @@
                 "server": "google-https-dns"
             },
             {
-                "rule_set": "proxy-rule",
-                "server": "dns-fakeip"
+                "rule_set": "cn-rule",
+                "server": "aliyun-quic-dns"
             },
             {
-                "rule_set": "proxy-rule",
-                "invert": true,
-                "rewrite_ttl": 10,
-                "server": "aliyun-quic-dns"
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "proxy-rule",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "cnip-rule"
+                    }
+                ],
+                "server": "ggoogle-https-dns",
+                "client_subnet": "1.1.0.0/24"
             },
             {
                 "server": "dns-fakeip",
@@ -89,7 +98,6 @@
             "inet4_range": "198.18.0.0/15",
             "inet6_range": "fc00::/18"
         },
-        "client_subnet": "1.1.0.0",
         "independent_cache": true
     },
     "inbounds": [
@@ -683,9 +691,21 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "port": 443,
-                "network": "udp",
-                "action": "reject"
+                "type": "logical",
+                "mode": "or",
+                "rules": [
+                    {
+                        "port": 853
+                    },
+                    {
+                        "network": "udp",
+                        "port": 443
+                    },
+                    {
+                        "protocol": "stun"
+                    }
+                ],
+                "outbound": "block"
             },
             {
                 "clash_mode": "Global",
