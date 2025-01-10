@@ -1,7 +1,7 @@
 {
     "log": {
         "disabled": false,
-        "level": "warn",
+        "level": "error",
         "output": "/etc/sing-box/box.log",
         "timestamp": true
     },
@@ -16,8 +16,7 @@
         },
         "cache_file": {
             "enabled": true,
-            "path": "/etc/sing-box/cache.db",
-            "store_rdrc": true,
+            "path": "cache.db",
             "store_fakeip": true
         }
     },
