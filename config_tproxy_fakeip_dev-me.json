@@ -1,7 +1,7 @@
 {
     "log": {
-        "disabled": fatal,
-        "level": "error",
+        "disabled": false,
+        "level": "fatal",
         "output": "/etc/sing-box/box.log",
         "timestamp": true
     },
