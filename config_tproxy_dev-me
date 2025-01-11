@@ -697,6 +697,9 @@
                     "yacd.haishan.me",
                     "d.metacubex.one"
                 ],
+                "domain_suffix": [
+                    ".cn"
+                ],
                 "outbound": "🎯 全球直连"
             },
             {
