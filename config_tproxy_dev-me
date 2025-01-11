@@ -84,9 +84,9 @@
                 "server": "google-tls-dns"
             }
         ],
-        "client_subnet": "1.1.0.0/24",
         "final": "google-tls-dns",
-        "independent_cache": true
+        "independent_cache": true,
+        "client_subnet": "1.1.0.0/24"
     },
     "inbounds": [
         {
