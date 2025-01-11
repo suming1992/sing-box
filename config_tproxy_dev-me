@@ -662,7 +662,14 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "rule_set": "ads-rule",
+                "rule_set": [
+                    "ads-rule",
+                    "geosite-cryptominers-rule",
+                    "geosite-malware-rule",
+                    "geoip-malware-rule",
+                    "geosite-phishing-rule",
+                    "geoip-phishing-rule"
+                ],
                 "action": "reject"
             },
             {
@@ -1036,6 +1043,46 @@
                 "tag": "youtube-rule",
                 "format": "binary",
                 "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/youtube.srs",
+                "download_detour": "🎯 全球直连",
+                "update_interval": "12h"
+            },
+            {
+                "type": "remote",
+                "tag": "geosite-cryptominers-rule",
+                "format": "binary",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-cryptominers.srs",
+                "download_detour": "🎯 全球直连",
+                "update_interval": "12h"
+            },
+            {
+                "type": "remote",
+                "tag": "geosite-malware-rule",
+                "format": "binary",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-malware.srs",
+                "download_detour": "🎯 全球直连",
+                "update_interval": "12h"
+            },
+            {
+                "type": "remote",
+                "tag": "geoip-malware-rule",
+                "format": "binary",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-malware.srs",
+                "download_detour": "🎯 全球直连",
+                "update_interval": "12h"
+            },
+            {
+                "type": "remote",
+                "tag": "geosite-phishing-rule",
+                "format": "binary",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-phishing.srs",
+                "download_detour": "🎯 全球直连",
+                "update_interval": "12h"
+            },
+            {
+                "type": "remote",
+                "tag": "geoip-phishing-rule",
+                "format": "binary",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-phishing.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             }
