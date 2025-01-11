@@ -33,7 +33,8 @@
       },
       {
         "tag": "aliyun-quic-dns",
-        "address": "quic://223.5.5.5",
+        "address": "quic://dns.alidns.com:853",
+        "address_resolver": "default-dns",
         "detour": "🎯 全球直连"
       }
     ],
@@ -62,9 +63,25 @@
         "server": "google-tls-dns"
       },
       {
-        "rule_set": "geosite-cn-rule",
+        "rule_set": "cn-rule",
         "action": "route",
         "server": "aliyun-quic-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "proxy-rule",
+            "invert": true
+          },
+          {
+            "rule_set": "cnip-rule"
+          }
+        ],
+        "action": "route-options",
+        "client_subnet": "1.1.0.0/24",
+        "server": "google-tls-dns"
       }
     ],
     "final": "google-tls-dns",
