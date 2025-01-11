@@ -62,25 +62,9 @@
         "server": "google-tls-dns"
       },
       {
-        "rule_set": "cn-rule",
+        "rule_set": "geosite-cn-rule",
         "action": "route",
         "server": "aliyun-quic-dns"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "proxy-rule",
-            "invert": true
-          },
-          {
-            "rule_set": "cnip-rule"
-          }
-        ],
-        "action": "route-options",
-        "client_subnet": "1.1.0.0/24",
-        "server": "google-tls-dns"
       }
     ],
     "final": "google-tls-dns",
@@ -685,7 +669,7 @@
       },
       {
         "ip_is_private": true,
-        "inbound":"direct-in",
+        "inbound": "direct-in",
         "outbound": "🎯 全球直连"
       },
       {
@@ -1110,6 +1094,14 @@
         "tag": "geoip-phishing-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-phishing.srs",
+        "download_detour": "🎯 全球直连",
+        "update_interval": "12h"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-cn-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/country/geosite-cn.srs",
         "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       }
