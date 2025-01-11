@@ -84,7 +84,6 @@
                 "server": "google-tls-dns"
             }
         ],
-        "action": "route-options",
         "client_subnet": "1.1.0.0/24",
         "final": "google-tls-dns",
         "independent_cache": true
