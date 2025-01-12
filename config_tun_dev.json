@@ -2,7 +2,6 @@
   "log": {
     "disabled": false,
     "level": "info",
-    "output": "/etc/sing-box/box.log",
     "timestamp": true
   },
   "experimental": {
