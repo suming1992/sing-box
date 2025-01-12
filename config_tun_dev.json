@@ -692,6 +692,10 @@
   "route": {
     "rules": [
       {
+				"inbound": "dns-in",
+				"outbound": "dns-out"
+			},
+      {
         "type": "logical",
         "mode": "or",
         "rules": [
