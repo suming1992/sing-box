@@ -125,7 +125,7 @@
     },
     {
       "type": "direct",
-      "tag": "direct-in",
+      "tag": "dns-in",
       "listen": "::",
       "listen_port": 5353
     }
@@ -136,12 +136,12 @@
       "type": "direct"
     },
     {
-      "type": "block",
-      "tag": "block-out"
-    },
-    {
       "type": "dns",
       "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block-out"
     },
     {
       "tag": "🚀 节点选择",
@@ -692,20 +692,21 @@
   "route": {
     "rules": [
       {
-        "type": "direct",
-        "tag": "🎯 全球直连"
-      },
-      {
-        "inbound": "direct-in",
-        "outbound": "dns-out"
-      },
-      {
-        "protocol": "dns",
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
         "outbound": "dns-out"
       },
       {
         "ip_is_private": true,
-        "inbound": "direct-in",
+        "inbound": "dns-in",
         "outbound": "🎯 全球直连"
       },
       {
