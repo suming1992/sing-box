@@ -104,18 +104,7 @@
       "mtu": 1492,
       "auto_route": true,
       "auto_redirect": true,
-      "strict_route": true,
-      "stack": "mixed"
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "::",
-      "listen_port": 2080,
-      "tcp_fast_open": true,
-      "tcp_multi_path": true,
-      "users": [],
-      "set_system_proxy": false
+      "strict_route": true
     },
     {
       "type": "direct",
@@ -1070,7 +1059,7 @@
         "tag": "tiktok-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/tiktok.srs",
-        "download_detour": "🎯 全球直连",
+        "download_detour": " 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1078,7 +1067,7 @@
         "tag": "youtube-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/youtube.srs",
-        "download_detour": "🎯 全球直连",
+        "download_detour": " 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1086,7 +1075,7 @@
         "tag": "geosite-cryptominers-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-cryptominers.srs",
-        "download_detour": "🎯 全球直连",
+        "download_detour": " 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1094,7 +1083,7 @@
         "tag": "geosite-malware-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-malware.srs",
-        "download_detour": "🎯 全球直连",
+        "download_detour": " 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1102,7 +1091,7 @@
         "tag": "geoip-malware-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-malware.srs",
-        "download_detour": "🎯 全球直连",
+        "download_detour": " 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1110,7 +1099,7 @@
         "tag": "geosite-phishing-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-phishing.srs",
-        "download_detour": "🎯 全球直连",
+        "download_detour": " 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1118,7 +1107,7 @@
         "tag": "geoip-phishing-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-phishing.srs",
-        "download_detour": "🎯 全球直连",
+        "download_detour": " 全球直连",
         "update_interval": "12h"
       }
     ]
@@ -1128,6 +1117,6 @@
     "server": "time.apple.com",
     "server_port": 123,
     "interval": "30m",
-    "detour": "🎯 全球直连"
+    "detour": " 全球直连"
   }
 }
