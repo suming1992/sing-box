@@ -2,6 +2,7 @@
   "log": {
     "disabled": false,
     "level": "info",
+    "output": "/etc/sing-box/box.log",
     "timestamp": true
   },
   "experimental": {
@@ -722,6 +723,12 @@
           }
         ],
         "action": "reject"
+      },
+      {
+        "protocol": [
+          "BitTorrent"
+        ],
+        "outbound": "🎯 全球直连"
       },
       {
         "domain": [
