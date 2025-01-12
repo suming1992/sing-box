@@ -724,12 +724,6 @@
         "action": "reject"
       },
       {
-        "protocol": [
-          "BitTorrent"
-        ],
-        "outbound": "🎯 全球直连"
-      },
-      {
         "domain": [
           "clash.razord.top",
           "yacd.metacubex.one",
