@@ -692,6 +692,10 @@
   "route": {
     "rules": [
       {
+        "type": "direct",
+        "tag": "🎯 全球直连"
+      },
+      {
         "inbound": "direct-in",
         "outbound": "dns-out"
       },
