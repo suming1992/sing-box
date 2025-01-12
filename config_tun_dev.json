@@ -22,21 +22,26 @@
   },
   "dns": {
     "servers": [
-      {
-        "tag": "default-dns",
-        "address": "218.85.157.99",
-        "detour": "🎯 全球直连"
-      },
+			{
+				"tag": "default-dns",
+				"address": "218.85.157.99",
+				"strategy": "ipv4_only",
+				"detour": "🎯 全球直连"
+			},
       {
         "tag": "google-dns",
         "address": "https://dns.google/dns-query",
         "address_resolver": "default-dns",
+        "address_strategy": "ipv4_only",
+        "strategy": "prefer_ipv6",
         "detour": "♻️ 自动选择"
       },
       {
         "tag": "aliyun-quic-dns",
         "address": "quic://dns.alidns.com:853",
         "address_resolver": "default-dns",
+        "address_strategy": "ipv4_only",
+        "strategy": "prefer_ipv6",
         "detour": "🎯 全球直连"
       }
     ],
@@ -87,6 +92,7 @@
       }
     ],
     "final": "google-dns",
+    "strategy": "prefer_ipv6",
     "independent_cache": true,
     "client_subnet": "1.1.0.0/24"
   },
