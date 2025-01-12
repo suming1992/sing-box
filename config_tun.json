@@ -692,16 +692,11 @@
   "route": {
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 53
-          },
-          {
-            "protocol": "dns"
-          }
-        ],
+				"inbound": "dns-in",
+				"outbound": "dns-out"
+			},
+      {
+        "protocol": "dns",
         "outbound": "dns-out"
       },
       {
