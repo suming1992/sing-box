@@ -21,12 +21,12 @@
   },
   "dns": {
     "servers": [
-			{
-				"tag": "default-dns",
-				"address": "218.85.157.99",
-				"strategy": "ipv4_only",
-				"detour": "🎯 全球直连"
-			},
+      {
+        "tag": "default-dns",
+        "address": "218.85.157.99",
+        "strategy": "ipv4_only",
+        "detour": "🎯 全球直连"
+      },
       {
         "tag": "google-dns",
         "address": "https://dns.google/dns-query",
@@ -44,9 +44,9 @@
         "detour": "🎯 全球直连"
       },
       {
-				"tag": "block-dns",
-				"address": "rcode://name_error"
-			}
+        "tag": "block-dns",
+        "address": "rcode://name_error"
+      }
     ],
     "rules": [
       {
@@ -111,18 +111,18 @@
       "auto_redirect": true,
       "strict_route": true,
       "stack": "mixed",
-			"sniff": true,
-			"sniff_override_destination": false
+      "sniff": true,
+      "sniff_override_destination": false
     },
     {
-			"type": "mixed",
-			"tag": "mixed-in",
-			"listen": "::",
-			"listen_port": 5330,
-			"sniff": true,
-			"sniff_override_destination": false,
-			"set_system_proxy": false
-		},
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 5330,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "set_system_proxy": false
+    },
     {
       "type": "direct",
       "tag": "direct-in",
@@ -136,13 +136,13 @@
       "type": "direct"
     },
     {
-			"type": "block",
-			"tag": "block-out"
-		},
+      "type": "block",
+      "tag": "block-out"
+    },
     {
-			"type": "dns",
-			"tag": "dns-out"
-		},
+      "type": "dns",
+      "tag": "dns-out"
+    },
     {
       "tag": "🚀 节点选择",
       "type": "selector",
@@ -691,14 +691,14 @@
   ],
   "route": {
     "rules": [
-			{
-				"inbound": "direct-in",
-				"outbound": "dns-out"
-			},
-			{
-				"protocol": "dns",
-				"outbound": "dns-out"
-			},
+      {
+        "inbound": "direct-in",
+        "outbound": "dns-out"
+      },
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
       {
         "ip_is_private": true,
         "inbound": "direct-in",
