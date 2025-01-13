@@ -106,6 +106,7 @@
         "192.168.0.0/16",
         "fc00::/7"
       ],
+      "auto_route": true,
       "mtu": 1492,
       "sniff": true,
       "sniff_override_destination": false
