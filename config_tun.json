@@ -102,34 +102,18 @@
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
-      "route_exclude_address": "192.168.0.0/16",
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
       "mtu": 1492,
-      "auto_route": true,
-      "auto_redirect": true,
-      "strict_route": true,
-      "stack": "mixed",
       "sniff": true,
       "sniff_override_destination": false
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "::",
-      "listen_port": 5330,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "set_system_proxy": false
-    },
-    {
-      "type": "direct",
-      "tag": "dns-in",
-      "listen": "::",
-      "listen_port": 5353
     }
   ],
   "outbounds": [
     {
-      "tag": " 全球直连",
+      "tag": "🎯 全球直连",
       "type": "direct"
     },
     {
@@ -689,16 +673,24 @@
   "route": {
     "rules": [
       {
-				"inbound": "dns-in",
-				"outbound": "dns-out"
-			},
-      {
-        "protocol": "dns",
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
         "outbound": "dns-out"
       },
       {
         "ip_is_private": true,
-        "inbound": "dns-in",
+        "outbound": "🎯 全球直连"
+      },
+      {
+        "ip_is_private": true,
         "outbound": "🎯 全球直连"
       },
       {
@@ -969,14 +961,6 @@
         "tag": "disney-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/disney.srs",
-        "download_detour": "🎯 全球直连",
-        "update_interval": "12h"
-      },
-      {
-        "type": "remote",
-        "tag": "fakeip-filter-rule",
-        "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/fakeip-filter.srs",
         "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
