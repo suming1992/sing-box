@@ -102,10 +102,7 @@
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
-      ],
+      "route_exclude_address": "192.168.0.0/16",
       "mtu": 1492,
       "auto_route": true,
       "auto_redirect": true,
@@ -132,7 +129,7 @@
   ],
   "outbounds": [
     {
-      "tag": "🎯 全球直连",
+      "tag": " 全球直连",
       "type": "direct"
     },
     {
