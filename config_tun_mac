@@ -7,15 +7,15 @@
   "experimental": {
     "clash_api": {
       "external_controller": "0.0.0.0:9095",
-      "external_ui": "/etc/sing-box/ui",
+      "external_ui": "ui",
       "secret": "Clash12397272!",
       "external_ui_download_url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": " 全球直连",
+      "external_ui_download_detour": "🎯 全球直连",
       "default_mode": "Rule"
     },
     "cache_file": {
       "enabled": true,
-      "path": "/etc/sing-box/cache.db",
+      "path": "cache.db",
       "store_fakeip": false
     }
   },
@@ -24,19 +24,19 @@
       {
         "tag": "default-dns",
         "address": "218.85.157.99",
-        "detour": " 全球直连"
+        "detour": "🎯 全球直连"
       },
       {
         "tag": "google-dns",
         "address": "https://8.8.8.8/dns-query",
         "strategy": "prefer_ipv6",
-        "detour": " 自动选择"
+        "detour": "♻️ 自动选择"
       },
       {
         "tag": "aliyun-quic-dns",
         "address": "quic://223.5.5.5:853",
         "strategy": "prefer_ipv6",
-        "detour": " 全球直连"
+        "detour": "🎯 全球直连"
       },
       {
         "tag": "block-dns",
@@ -112,8 +112,8 @@
       "listen_port": 5830,
       "udp_timeout": "300s",
       "sniff": true,
-      "sniff_override_destination": false,
-      "set_system_proxy": true
+      "sniff_override_destination": true,
+      "set_system_proxy": false
     }
   ],
   "outbounds": [
@@ -167,89 +167,89 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 网络测试",
+      "tag": "📈 网络测试",
       "type": "selector",
       "outbounds": [
-        " 全球直连",
-        " 手动切换"
+        "🎯 全球直连",
+        "🚀 手动切换"
       ],
-      "default": " 手动切换",
+      "default": "🚀 手动切换",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 人工智能",
+      "tag": "🤖 人工智能",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 台湾节点",
+      "default": "🇨🇳 台湾节点",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 游戏服务",
+      "tag": "🎮 游戏服务",
       "type": "selector",
       "outbounds": [
-        " 全球直连",
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🎯 全球直连",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 全球直连",
+      "default": "🎯 全球直连",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 电报消息",
+      "tag": "📲 电报消息",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 油管视频",
+      "tag": "📹 油管视频",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 奈飞视频",
+      "tag": "🎥 奈飞视频",
       "type": "selector",
       "outbounds": [
         "{all}"
@@ -265,98 +265,98 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 迪士尼",
+      "tag": "📽️ 迪士尼",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 哔哩哔哩",
+      "tag": "📺 哔哩哔哩",
       "type": "selector",
       "outbounds": [
-        " 全球直连",
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🎯 全球直连",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 全球直连",
+      "default": "🎯 全球直连",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " Bigolive",
+      "tag": "📺 Bigolive",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 狮城节点",
+      "default": "🇸🇬 狮城节点",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " Max",
+      "tag": "🎞️ Max",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " Prime Video",
+      "tag": "🎬 Prime Video",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " Tiktok",
+      "tag": "🎵 Tiktok",
       "type": "urltest",
       "outbounds": [
         "{all}"
@@ -375,50 +375,31 @@
       "interrupt_exist_connections": false
     },
     {
-      "tag": " Talkatone",
-      "type": "urltest",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "US|美国"
-          ]
-        }
-      ],
-      "url": "http://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 20,
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": " Apple TV",
+      "tag": "🍎 Apple TV",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 苹果服务",
+      "tag": "🍎 苹果服务",
       "type": "selector",
       "outbounds": [
-        " 全球直连",
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
+        "🎯 全球直连",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -458,76 +439,76 @@
         "🚀 手动切换",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 直连域名",
+      "tag": "🇨🇳 直连域名",
       "type": "selector",
       "outbounds": [
-        " 全球直连",
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🎯 全球直连",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 全球直连",
+      "default": "🎯 全球直连",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 直连 IP",
+      "tag": "🇨🇳 直连 IP",
       "type": "selector",
       "outbounds": [
-        " 全球直连",
-        " 节点选择",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
+        "🎯 全球直连",
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
       ],
-      "default": " 全球直连",
+      "default": "🎯 全球直连",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 代理域名",
+      "tag": "🧱 代理域名",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换"
       ],
-      "default": " 节点选择"
+      "default": "🚀 节点选择"
     },
     {
-      "tag": " 代理 IP",
+      "tag": "🧱 代理 IP",
       "type": "selector",
       "outbounds": [
-        " 节点选择",
-        " 自动选择",
-        " 手动切换"
+        "🚀 节点选择",
+        "♻️ 自动选择",
+        "🚀 手动切换"
       ],
-      "default": " 节点选择",
+      "default": "🚀 节点选择",
       "interrupt_exist_connections": true
     },
     {
-      "tag": " 香港节点",
+      "tag": "🇭🇰 香港节点",
       "type": "urltest",
       "outbounds": [
         "{all}"
@@ -746,89 +727,63 @@
         "domain_suffix": [
           ".cn"
         ],
-        "outbound": " 全球直连"
+        "outbound": "🎯 全球直连"
       },
       {
         "rule_set": "applications-rule",
-        "outbound": " 全球直连"
-      },
-      {
-        "rule_set": "customize_download-rule",
-        "outbound": " 全球直连"
-      },
-      {
-        "rule_set": "customize_direct-rule",
-        "outbound": " 全球直连"
-      },
-      {
-        "rule_set": "talkatoneads-rule",
-        "outbound": "block-out"
-      },
-      {
-        "rule_set": "talkatonecdn-rule",
-        "outbound": " 全球直连"
-      },
-      {
-        "domain_suffix": [
-          "tktn.be"
-        ],
-        "outbound": " Talkatone"
+        "outbound": "🎯 全球直连"
       },
       {
         "rule_set": "networktest-rule",
-        "outbound": " 网络测试"
+        "outbound": "📈 网络测试"
       },
       {
         "rule_set": "ai-rule",
-        "outbound": " 人工智能"
+        "outbound": "🤖 人工智能"
       },
       {
         "rule_set": "games-cn-rule",
-        "outbound": " 游戏服务"
+        "outbound": "🎮 游戏服务"
       },
       {
         "rule_set": "youtube-rule",
-        "outbound": " 油管视频"
+        "outbound": "📹 油管视频"
       },
       {
         "rule_set": "netflix-rule",
-        "outbound": " 奈飞视频"
+        "outbound": "🎥 奈飞视频"
       },
       {
         "rule_set": "disney-rule",
-        "outbound": " 迪士尼"
+        "outbound": "📽️ 迪士尼"
       },
       {
         "rule_set": "bilibili-rule",
-        "outbound": " 哔哩哔哩"
-      },
-      {
-        "rule_set": "bigolive-rule",
-        "outbound": " Bigolive"
+        "outbound": "📺 哔哩哔哩"
       },
       {
         "rule_set": "max-rule",
-        "outbound": " Max"
+        "outbound": "🎞️ Max"
       },
       {
         "rule_set": "primevideo-rule",
-        "outbound": " Prime Video"
+        "outbound": "🎬 Prime Video"
       },
       {
         "rule_set": "tiktok-rule",
-        "outbound": " Tiktok"
+        "outbound": "🎵 Tiktok"
       },
       {
         "rule_set": "appletv-rule",
-        "outbound": " Apple TV"
+        "outbound": "🍎 Apple TV"
       },
       {
         "rule_set": "apple-cn-rule",
-        "outbound": " 苹果服务"
+        "outbound": "🍎 苹果服务"
       },
       {
         "rule_set": "microsoft-cn-rule",
-        "outbound": " 微软服务"
+        "outbound": "🪟 微软服务"
       },
       {
         "rule_set": "google-cn-rule",
@@ -863,36 +818,6 @@
     "auto_detect_interface": true,
     "final": "🐠 漏网之鱼",
     "rule_set": [
-      {
-        "type": "local",
-        "tag": "customize_download-rule",
-        "format": "source",
-        "path": "/etc/sing-box/ruleset/download.json"
-      },
-      {
-        "type": "local",
-        "tag": "customize_direct-rule",
-        "format": "source",
-        "path": "/etc/sing-box/ruleset/direct.json"
-      },
-      {
-        "type": "local",
-        "tag": "bigolive-rule",
-        "format": "binary",
-        "path": "/etc/sing-box/ruleset/bigo.srs"
-      },
-      {
-        "type": "local",
-        "tag": "talkatoneads-rule",
-        "format": "binary",
-        "path": "/etc/sing-box/ruleset/talkatoneads.srs"
-      },
-      {
-        "type": "local",
-        "tag": "talkatonecdn-rule",
-        "format": "binary",
-        "path": "/etc/sing-box/ruleset/talkatonecdn.srs"
-      },
       {
         "type": "remote",
         "tag": "ads-rule",
@@ -930,7 +855,7 @@
         "tag": "applications-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/applications.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -938,7 +863,7 @@
         "tag": "bilibili-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/bilibili.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -946,7 +871,7 @@
         "tag": "cn-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/cn.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -954,7 +879,7 @@
         "tag": "cnip-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/cnip.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -962,7 +887,7 @@
         "tag": "disney-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/disney.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -970,7 +895,7 @@
         "tag": "games-cn-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/games-cn.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -978,7 +903,7 @@
         "tag": "google-cn-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/google-cn.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -986,7 +911,7 @@
         "tag": "max-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/max.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -994,7 +919,7 @@
         "tag": "microsoft-cn-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/microsoft-cn.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1002,7 +927,7 @@
         "tag": "netflix-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/netflix.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1010,7 +935,7 @@
         "tag": "netflixip-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/netflixip.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1018,7 +943,7 @@
         "tag": "networktest-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/networktest.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1026,7 +951,7 @@
         "tag": "primevideo-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/primevideo.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1034,7 +959,7 @@
         "tag": "private-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/private.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1042,7 +967,7 @@
         "tag": "privateip-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/privateip.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1050,7 +975,7 @@
         "tag": "proxy-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/proxy.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1058,7 +983,7 @@
         "tag": "telegramip-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/telegramip.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
