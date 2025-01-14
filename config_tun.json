@@ -24,22 +24,17 @@
       {
         "tag": "default-dns",
         "address": "218.85.157.99",
-        "strategy": "ipv4_only",
         "detour": "🎯 全球直连"
       },
       {
         "tag": "google-dns",
-        "address": "https://dns.google/dns-query",
-        "address_resolver": "default-dns",
-        "address_strategy": "ipv4_only",
+        "address": "https://8.8.8.8/dns-query",
         "strategy": "prefer_ipv6",
         "detour": "♻️ 自动选择"
       },
       {
         "tag": "aliyun-quic-dns",
-        "address": "quic://dns.alidns.com:853",
-        "address_resolver": "default-dns",
-        "address_strategy": "ipv4_only",
+        "address": "quic://223.5.5.5:853",
         "strategy": "prefer_ipv6",
         "detour": "🎯 全球直连"
       },
@@ -102,15 +97,24 @@
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
-      ],
+      "route_exclude_address": "192.168.0.0/16",
       "auto_route": true,
       "mtu": 1492,
+      "stack": "mixed",
+      "udp_timeout": "300s",
       "sniff": true,
       "sniff_override_destination": false
-    }
+    },
+    {
+			"type": "mixed",
+			"tag": "mixed-in",
+			"listen": "::",
+			"listen_port": 5830,
+			"udp_timeout": "300s",
+			"sniff": true,
+			"sniff_override_destination": false,
+			"set_system_proxy": false
+		}
   ],
   "outbounds": [
     {
