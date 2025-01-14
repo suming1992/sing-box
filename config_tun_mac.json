@@ -10,7 +10,7 @@
       "external_ui": "ui",
       "secret": "Clash12397272!",
       "external_ui_download_url": "https://github.nascloud.us.kg/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "🎯 全球直连",
+      "external_ui_download_detour": " 全球直连",
       "default_mode": "Rule"
     },
     "cache_file": {
@@ -24,13 +24,13 @@
       {
         "tag": "default-dns",
         "address": "218.85.157.99",
-        "detour": "🎯 全球直连"
+        "detour": " 全球直连"
       },
       {
         "tag": "google-dns",
         "address": "https://8.8.8.8/dns-query",
         "strategy": "prefer_ipv6",
-        "detour": "♻️ 自动选择"
+        "detour": " 自动选择"
       },
       {
         "tag": "aliyun-quic-dns",
