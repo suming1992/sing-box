@@ -117,47 +117,47 @@
     }
   ],
   "outbounds": [
-    {
-      "tag": " 全球直连",
-      "type": "direct"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "block",
-      "tag": "block-out"
-    },
-    {
-      "tag": " 节点选择",
-      "type": "selector",
-      "outbounds": [
-        " 全球直连",
-        " 自动选择",
-        " 手动切换",
-        " 香港节点",
-        " 台湾节点",
-        " 狮城节点",
-        " 美国节点",
-        " 日本节点",
-        " 韩国节点",
-        " 其他节点"
-      ],
-      "default": " 自动选择",
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": " 自动选择",
-      "type": "urltest",
-      "outbounds": [
-        "{all}"
-      ],
-      "url": "http://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 20,
-      "interrupt_exist_connections": false
-    },
+      {
+        "tag": "🎯 全球直连",
+        "type": "direct"
+      },
+      {
+        "type": "dns",
+        "tag": "dns-out"
+      },
+      {
+        "type": "block",
+        "tag": "block-out"
+      },
+      {
+        "tag": "🚀 节点选择",
+        "type": "selector",
+        "outbounds": [
+          "🎯 全球直连",
+          "♻️ 自动选择",
+          "🚀 手动切换",
+          "🇭🇰 香港节点",
+          "🇨🇳 台湾节点",
+          "🇸🇬 狮城节点",
+          "🇺🇸 美国节点",
+          "🇯🇵 日本节点",
+          "🇰🇷 韩国节点",
+          "🇺🇳 其他节点"
+        ],
+        "default": "♻️ 自动选择",
+        "interrupt_exist_connections": true
+      },
+      {
+        "tag": "♻️ 自动选择",
+        "type": "urltest",
+        "outbounds": [
+          "{all}"
+        ],
+        "url": "http://www.apple.com/library/test/success.html",
+        "interval": "1m",
+        "tolerance": 20,
+        "interrupt_exist_connections": false
+      },
     {
       "tag": "🚀 手动切换",
       "type": "selector",
