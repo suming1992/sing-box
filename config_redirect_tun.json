@@ -123,7 +123,7 @@
         "fdfe:dcba:9876::1/126"
       ],
       "mtu": 1492,
-      "auto_route": false,
+      "auto_route": true,
       "udp_timeout": "300s",
       "stack": "gvisor",
       "sniff": true,
