@@ -30,6 +30,7 @@
                 "tag": "google-dns",
                 "address": "https://8.8.8.8/dns-query",
                 "strategy": "prefer_ipv6",
+                "client_subnet": "1.1.0.0/24",
                 "detour": "♻️ 自动选择"
             },
             {
