@@ -1101,12 +1101,5 @@
           "update_interval": "12h"
         }
       ]
-    },
-    "ntp": {
-      "enabled": true,
-      "server": "time.apple.com",
-      "server_port": 123,
-      "interval": "30m",
-      "detour": "🎯 全球直连"
     }
   }
