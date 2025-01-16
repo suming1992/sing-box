@@ -112,12 +112,6 @@
         "tcp_fast_open": true,
         "tcp_multi_path": true,
         "set_system_proxy": false
-      },
-      {
-        "type": "direct",
-        "tag": "direct-in",
-        "listen": "::",
-        "listen_port": 5353
       }
     ],
     "outbounds": [
@@ -681,10 +675,6 @@
     ],
     "route": {
       "rules": [
-        {
-          "inbound": "direct-in",
-          "outbound": "dns-out"
-        },
         {
           "type": "logical",
           "mode": "or",
