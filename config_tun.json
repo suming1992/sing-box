@@ -67,21 +67,6 @@
         {
           "rule_set": "cn-rule",
           "server": "aliyun-quic-dns"
-        },
-        {
-          "type": "logical",
-          "mode": "and",
-          "rules": [
-            {
-              "rule_set": "proxy-rule",
-              "invert": true
-            },
-            {
-              "rule_set": "cnip-rule"
-            }
-          ],
-          "client_subnet": "1.1.0.0/24",
-          "server": "google-dns"
         }
       ],
       "final": "google-dns",
