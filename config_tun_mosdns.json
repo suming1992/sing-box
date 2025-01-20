@@ -57,10 +57,7 @@
                 "server": "default-dns"
             },
             {
-                "query_type": [
-                    "HTTPS",
-                    "SVCB"
-                ],
+                "query_type": "HTTPS",
                 "server": "block-dns"
             },
             {
