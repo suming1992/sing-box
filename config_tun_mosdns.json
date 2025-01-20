@@ -21,30 +21,11 @@
     },
     "dns": {
         "servers": [
-            {
-                "tag": "default-dns",
-                "address": "218.85.157.99",
-                "detour": "🎯 全球直连"
-            },
-            {
-                "tag": "google-dns",
-                "address": "https://8.8.8.8/dns-query",
-                "strategy": "prefer_ipv6",
-                "client_subnet": "1.1.0.0/24",
-                "detour": "♻️ 自动选择"
-            },
-            {
-                "tag": "aliyun-quic-dns",
-                "address": "quic://223.5.5.5:853",
-                "strategy": "prefer_ipv6",
-                "detour": "🎯 全球直连"
-            },
-            {
-                "tag": "mosdns-dns",
-                "address": "127.0.0.1:5335",
-                "strategy": "prefer_ipv6",
-                "detour": "🎯 全球直连"
-            },
+			{
+				"tag": "system-dns",
+				"address": "local",
+				"detour": "🎯 全球直连"
+			},
             {
                 "tag": "block-dns",
                 "address": "rcode://name_error"
@@ -54,35 +35,32 @@
             {
                 "outbound": "any",
                 "disable_cache": true,
-                "server": "default-dns"
+                "server": "system-dns"
             },
-            {
-                "query_type": "HTTPS",
-                "server": "block-dns"
-            },
+			{
+				"query_type": [
+					"HTTPS",
+					"SVCB"
+				],
+				"server": "block-dns"
+			},
             {
                 "clash_mode": "Direct",
-                "server": "aliyun-quic-dns"
+                "server": "system-dns"
             },
             {
                 "clash_mode": "Global",
-                "server": "google-dns"
+                "server": "system-dns"
             },
             {
                 "rule_set": "cn-rule",
-                "server": "mosdns-dns"
+                "server": "system-dns"
             }
         ],
-        "final": "mosdns-dns",
+        "final": "system-dns",
         "strategy": "prefer_ipv6"
     },
     "inbounds": [
-        {
-            "type": "direct",
-            "tag": "dns-in",
-            "listen": "::",
-            "listen_port": 5333
-        },
         {
             "type": "tun",
             "tag": "tun-in",
@@ -669,10 +647,6 @@
     ],
     "route": {
         "rules": [
-            {
-                "inbound": "dns-in",
-                "outbound": "dns-out"
-            },
             {
                 "type": "logical",
                 "mode": "or",
