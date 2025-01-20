@@ -21,11 +21,11 @@
     },
     "dns": {
         "servers": [
-			{
-				"tag": "system-dns",
-				"address": "local",
-				"detour": "🎯 全球直连"
-			},
+            {
+                "tag": "system-dns",
+                "address": "local",
+                "detour": "🎯 全球直连"
+            },
             {
                 "tag": "block-dns",
                 "address": "rcode://name_error"
@@ -37,13 +37,13 @@
                 "disable_cache": true,
                 "server": "system-dns"
             },
-			{
-				"query_type": [
-					"HTTPS",
-					"SVCB"
-				],
-				"server": "block-dns"
-			},
+            {
+                "query_type": [
+                    "HTTPS",
+                    "SVCB"
+                ],
+                "server": "block-dns"
+            },
             {
                 "clash_mode": "Direct",
                 "server": "system-dns"
