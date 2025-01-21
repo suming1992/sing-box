@@ -148,6 +148,14 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "🚀 手动切换",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "♻️ 自动选择",
       "type": "urltest",
       "outbounds": [
@@ -157,14 +165,6 @@
       "interval": "1m",
       "tolerance": 20,
       "interrupt_exist_connections": false
-    },
-    {
-      "tag": "🚀 手动切换",
-      "type": "selector",
-      "outbounds": [
-        "{all}"
-      ],
-      "interrupt_exist_connections": true
     },
     {
       "tag": "📈 网络测试",
