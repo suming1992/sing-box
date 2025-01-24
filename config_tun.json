@@ -125,7 +125,7 @@
             "listen": "::",
             "listen_port": 5330,
             "tcp_fast_open": true,
-            "udp_fragment": true,
+            "udp_fragment": false,
             "set_system_proxy": false
         }
     ],
