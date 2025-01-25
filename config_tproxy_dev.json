@@ -30,14 +30,12 @@
       {
         "tag": "google-dns",
         "address": "https://8.8.8.8/dns-query",
-        "strategy": "prefer_ipv6",
         "client_subnet": "1.1.0.0/24",
         "detour": "♻️ 自动选择"
       },
       {
         "tag": "aliyun-quic-dns",
         "address": "quic://223.5.5.5:853",
-        "strategy": "prefer_ipv6",
         "detour": "🎯 全球直连"
       }
     ],
@@ -94,7 +92,6 @@
       }
     ],
     "final": "google-dns",
-    "strategy": "prefer_ipv6",
     "independent_cache": true,
     "client_subnet": "1.1.0.0/24"
   },
