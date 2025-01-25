@@ -43,13 +43,13 @@
     ],
     "rules": [
       {
-        "query_type": "HTTPS",
-        "action": "reject"
-      },
-      {
         "outbound": "any",
         "disable_cache": true,
         "server": "default-dns"
+      },
+      {
+        "query_type": "HTTPS",
+        "action": "reject"
       },
       {
         "rule_set": [
