@@ -315,25 +315,6 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "📺 IPTV",
-      "type": "selector",
-      "outbounds": [
-        "🎯 全球直连",
-        "🚀 节点选择",
-        "🚀 手动切换",
-        "♻️ 自动选择",
-        "🇭🇰 香港节点",
-        "🇨🇳 台湾节点",
-        "🇸🇬 狮城节点",
-        "🇺🇸 美国节点",
-        "🇯🇵 日本节点",
-        "🇰🇷 韩国节点",
-        "🇺🇳 其他节点"
-      ],
-      "default": "🎯 全球直连",
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "📺 Bigolive",
       "type": "selector",
       "outbounds": [
@@ -782,10 +763,6 @@
         "outbound": "🎯 全球直连"
       },
       {
-        "rule_set": "IPTVMainland-rule",
-        "outbound": "🎯 全球直连"
-      },
-      {
         "rule_set": "talkatonecdn-rule",
         "outbound": "🎯 全球直连"
       },
@@ -829,10 +806,6 @@
       {
         "rule_set": "bilibili-rule",
         "outbound": "📺 哔哩哔哩"
-      },
-      {
-        "rule_set": "IPTVOther-rule",
-        "outbound": "📺 IPTV"
       },
       {
         "rule_set": "bigolive-rule",
@@ -1148,22 +1121,6 @@
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Sing-box/main/adblock_reject.srs",
         "download_detour": "🎯 全球直连",
         "update_interval": "1h"
-      },
-      {
-        "type": "remote",
-        "tag": "IPTVMainland-rule",
-        "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/IPTVMainland/IPTVMainland.srs",
-        "download_detour": "🎯 全球直连",
-        "update_interval": "12h"
-      },
-      {
-        "type": "remote",
-        "tag": "IPTVOther-rule",
-        "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/IPTVOther/IPTVOther.srs",
-        "download_detour": "🎯 全球直连",
-        "update_interval": "12h"
       }
     ]
   }
