@@ -1,7 +1,7 @@
 {
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "warn",
     "timestamp": true
   },
   "experimental": {
@@ -16,7 +16,8 @@
     "cache_file": {
       "enabled": true,
       "path": "/etc/sing-box/cache.db",
-      "store_fakeip": false
+      "store_fakeip": false,
+      "store_rdrc": true
     }
   },
   "dns": {
@@ -30,6 +31,7 @@
         "tag": "google-dns",
         "address": "https://8.8.8.8/dns-query",
         "strategy": "prefer_ipv6",
+        "client_subnet": "1.1.0.0/24",
         "detour": "♻️ 自动选择"
       },
       {
@@ -55,6 +57,19 @@
         "outbound": "any",
         "disable_cache": true,
         "server": "default-dns"
+      },
+      {
+        "rule_set": [
+          "adblock-reject-rule",
+          "talkatoneads-rule",
+          "geosite-cryptominers-rule",
+          "geosite-malware-rule",
+          "geoip-malware-rule",
+          "geosite-phishing-rule",
+          "geoip-phishing-rule"
+        ],
+        "disable_cache": true,
+        "server": "block-dns"
       },
       {
         "clash_mode": "Direct",
@@ -90,57 +105,48 @@
     "client_subnet": "1.1.0.0/24"
   },
   "inbounds": [
-      {
-          "type": "tproxy",
-          "tag": "tproxy-in",
-          "listen": "::",
-          "listen_port": 8332,
-          "tcp_fast_open": true,
-          "udp_fragment": true
-      }
+    {
+      "type": "tproxy",
+      "tag": "tproxy-in",
+      "listen": "::",
+      "listen_port": 8332,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
+      "sniff": true,
+      "sniff_override_destination": false
+    }
   ],
   "outbounds": [
-      {
-        "tag": "🎯 全球直连",
-        "type": "direct"
-      },
-      {
-        "type": "dns",
-        "tag": "dns-out"
-      },
-      {
-        "type": "block",
-        "tag": "block-out"
-      },
-      {
-        "tag": "🚀 节点选择",
-        "type": "selector",
-        "outbounds": [
-          "🎯 全球直连",
-          "♻️ 自动选择",
-          "🚀 手动切换",
-          "🇭🇰 香港节点",
-          "🇨🇳 台湾节点",
-          "🇸🇬 狮城节点",
-          "🇺🇸 美国节点",
-          "🇯🇵 日本节点",
-          "🇰🇷 韩国节点",
-          "🇺🇳 其他节点"
-        ],
-        "default": "♻️ 自动选择",
-        "interrupt_exist_connections": true
-      },
-      {
-        "tag": "♻️ 自动选择",
-        "type": "urltest",
-        "outbounds": [
-          "{all}"
-        ],
-        "url": "http://www.apple.com/library/test/success.html",
-        "interval": "1m",
-        "tolerance": 20,
-        "interrupt_exist_connections": false
-      },
+    {
+      "tag": "🎯 全球直连",
+      "type": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block-out"
+    },
+    {
+      "tag": "🚀 节点选择",
+      "type": "selector",
+      "outbounds": [
+        "🎯 全球直连",
+        "🚀 手动切换",
+        "♻️ 自动选择",
+        "🇭🇰 香港节点",
+        "🇨🇳 台湾节点",
+        "🇸🇬 狮城节点",
+        "🇺🇸 美国节点",
+        "🇯🇵 日本节点",
+        "🇰🇷 韩国节点",
+        "🇺🇳 其他节点"
+      ],
+      "default": "♻️ 自动选择",
+      "interrupt_exist_connections": true
+    },
     {
       "tag": "🚀 手动切换",
       "type": "selector",
@@ -148,6 +154,17 @@
         "{all}"
       ],
       "interrupt_exist_connections": true
+    },
+    {
+      "tag": "♻️ 自动选择",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "url": "http://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 20,
+      "interrupt_exist_connections": false
     },
     {
       "tag": "📈 网络测试",
@@ -164,8 +181,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
         "🇺🇸 美国节点",
@@ -182,8 +199,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -200,8 +217,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -218,8 +235,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -241,7 +258,7 @@
         {
           "action": "include",
           "keywords": [
-            "SG|原生"
+            "HK|TW|SG|原生"
           ]
         }
       ],
@@ -252,8 +269,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -271,8 +288,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -289,8 +306,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -307,8 +324,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -325,8 +342,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -381,8 +398,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -400,8 +417,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -419,8 +436,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -437,8 +454,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -456,8 +473,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -475,8 +492,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -493,8 +510,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
-        "🚀 手动切换"
+        "🚀 手动切换",
+        "♻️ 自动选择"
       ],
       "default": "🚀 节点选择"
     },
@@ -503,8 +520,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
-        "🚀 手动切换"
+        "🚀 手动切换",
+        "♻️ 自动选择"
       ],
       "default": "🚀 节点选择",
       "interrupt_exist_connections": true
@@ -644,8 +661,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🎯 全球直连"
       ]
     },
@@ -676,17 +693,6 @@
       {
         "ip_is_private": true,
         "outbound": "🎯 全球直连"
-      },
-      {
-        "rule_set": [
-          "ads-rule",
-          "geosite-cryptominers-rule",
-          "geosite-malware-rule",
-          "geoip-malware-rule",
-          "geosite-phishing-rule",
-          "geoip-phishing-rule"
-        ],
-        "outbound": "block-out"
       },
       {
         "clash_mode": "Direct",
@@ -744,10 +750,6 @@
         "outbound": "🎯 全球直连"
       },
       {
-        "rule_set": "talkatoneads-rule",
-        "outbound": "block-out"
-      },
-      {
         "rule_set": "talkatonecdn-rule",
         "outbound": "🎯 全球直连"
       },
@@ -770,11 +772,18 @@
         "outbound": "🎮 游戏服务"
       },
       {
+        "rule_set": "telegramip-rule",
+        "outbound": "📲 电报消息"
+      },
+      {
         "rule_set": "youtube-rule",
         "outbound": "📹 油管视频"
       },
       {
-        "rule_set": "netflix-rule",
+        "rule_set": [
+          "netflix-rule",
+          "netflixip-rule"
+        ],
         "outbound": "🎥 奈飞视频"
       },
       {
@@ -824,14 +833,6 @@
       {
         "rule_set": "cn-rule",
         "outbound": "🇨🇳 直连域名"
-      },
-      {
-        "rule_set": "netflixip-rule",
-        "outbound": "🎥 奈飞视频"
-      },
-      {
-        "rule_set": "telegramip-rule",
-        "outbound": "📲 电报消息"
       },
       {
         "rule_set": "cnip-rule",
@@ -1099,14 +1100,15 @@
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-phishing.srs",
         "download_detour": "🎯 全球直连",
         "update_interval": "12h"
+      },
+      {
+        "type": "remote",
+        "tag": "adblock-reject-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Sing-box/main/adblock_reject.srs",
+        "download_detour": "🎯 全球直连",
+        "update_interval": "1h"
       }
     ]
-  },
-  "ntp": {
-    "enabled": true,
-    "server": "time.apple.com",
-    "server_port": 123,
-    "interval": "30m",
-    "detour": "🎯 全球直连"
   }
 }
