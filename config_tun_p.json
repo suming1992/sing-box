@@ -30,6 +30,7 @@
                     "https://2400:3200::1/dns-query",
                     "https://2400:3200:baba::1/dns-query"
                 ],
+                "address_resolver": "218.85.157.99",
                 "detour": "🎯 全球直连"
             },
             {
