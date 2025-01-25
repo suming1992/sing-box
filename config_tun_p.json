@@ -22,6 +22,11 @@
     "dns": {
         "servers": [
             {
+                "tag": "default-dns",
+                "address": "218.85.157.99",
+                "detour": "🎯 全球直连"
+            },
+            {
                 "tag": "dns_local",
                 "address": [
                     "quic://223.5.5.5:853",
@@ -30,7 +35,7 @@
                     "https://2400:3200::1/dns-query",
                     "https://2400:3200:baba::1/dns-query"
                 ],
-                "address_resolver": "218.85.157.99",
+                "address_resolver": "default-dns",
                 "detour": "🎯 全球直连"
             },
             {
