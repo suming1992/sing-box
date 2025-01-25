@@ -68,6 +68,7 @@
           "geosite-phishing-rule",
           "geoip-phishing-rule"
         ],
+        "disable_cache": true,
         "server": "block-dns"
       },
       {
@@ -125,6 +126,7 @@
       "listen": "::",
       "listen_port": 5330,
       "tcp_fast_open": true,
+      "tcp_multi_path": true,
       "udp_fragment": true,
       "set_system_proxy": false
     }
