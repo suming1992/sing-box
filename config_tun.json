@@ -118,7 +118,7 @@
       "strict_route": true,
       "stack": "mixed",
       "sniff": true,
-      "sniff_override_destination": false
+      "sniff_override_destination": true
     },
     {
       "type": "mixed",
@@ -130,7 +130,7 @@
       "udp_fragment": false,
       "set_system_proxy": false,
       "sniff": true,
-      "sniff_override_destination": false
+      "sniff_override_destination": true
     }
   ],
   "outbounds": [
