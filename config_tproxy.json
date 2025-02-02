@@ -43,14 +43,6 @@
         ],
         "rules": [
             {
-                "query_type": [
-                    "HTTPS",
-                    "SVCB"
-                ],
-                "action": "reject",
-                "method": "drop"
-            },
-            {
                 "outbound": "any",
                 "disable_cache": true,
                 "server": "default-dns"
