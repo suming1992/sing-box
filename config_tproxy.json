@@ -43,22 +43,16 @@
         ],
         "rules": [
             {
+                "query_type": [
+                    "HTTPS",
+                    "SVCB"
+                ],
+                "server": "block-dns"
+            },
+            {
                 "outbound": "any",
                 "disable_cache": true,
                 "server": "default-dns"
-            },
-            {
-                "rule_set": [
-                    "adblock-reject-rule",
-                    "talkatoneads-rule",
-                    "geosite-cryptominers-rule",
-                    "geosite-malware-rule",
-                    "geoip-malware-rule",
-                    "geosite-phishing-rule",
-                    "geoip-phishing-rule"
-                ],
-                "action": "reject",
-                "method": "drop"
             },
             {
                 "clash_mode": "Direct",
@@ -675,6 +669,19 @@
             {
                 "ip_is_private": true,
                 "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": [
+                    "adblock-reject-rule",
+                    "talkatoneads-rule",
+                    "geosite-cryptominers-rule",
+                    "geosite-malware-rule",
+                    "geoip-malware-rule",
+                    "geosite-phishing-rule",
+                    "geoip-phishing-rule"
+                ],
+                "action": "reject",
+                "method": "drop"
             },
             {
                 "clash_mode": "Direct",
