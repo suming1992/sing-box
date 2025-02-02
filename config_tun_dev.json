@@ -1,8 +1,7 @@
 {
   "log": {
     "disabled": false,
-    "level": "info",
-    "output": "/etc/sing-box/box.log",
+    "level": "warn",
     "timestamp": true
   },
   "experimental": {
@@ -17,7 +16,8 @@
     "cache_file": {
       "enabled": true,
       "path": "/etc/sing-box/cache.db",
-      "store_fakeip": false
+      "store_fakeip": false,
+      "store_rdrc": true
     }
   },
   "dns": {
@@ -29,14 +29,15 @@
       },
       {
         "tag": "google-dns",
-        "address": "https://dns.google/dns-query",
-        "address_resolver": "default-dns",
+        "address": "https://8.8.8.8/dns-query",
+        "strategy": "prefer_ipv6",
+        "client_subnet": "1.1.0.0/24",
         "detour": "♻️ 自动选择"
       },
       {
         "tag": "aliyun-quic-dns",
-        "address": "quic://dns.alidns.com:853",
-        "address_resolver": "default-dns",
+        "address": "quic://223.5.5.5:853",
+        "strategy": "prefer_ipv6",
         "detour": "🎯 全球直连"
       }
     ],
@@ -46,27 +47,37 @@
           "HTTPS",
           "SVCB"
         ],
-        "action": "reject"
+        "server": "block-dns"
       },
       {
         "outbound": "any",
-        "action": "route-options",
         "disable_cache": true,
         "server": "default-dns"
       },
       {
+        "rule_set": [
+          "adblock-reject-rule",
+          "talkatoneads-rule",
+          "geosite-cryptominers-rule",
+          "geosite-malware-rule",
+          "geoip-malware-rule",
+          "geosite-phishing-rule",
+          "geoip-phishing-rule"
+        ],
+        "disable_cache": true,
+        "action": "reject",
+        "method": "drop"
+      },
+      {
         "clash_mode": "Direct",
-        "action": "route",
         "server": "aliyun-quic-dns"
       },
       {
         "clash_mode": "Global",
-        "action": "route",
         "server": "google-dns"
       },
       {
         "rule_set": "cn-rule",
-        "action": "route",
         "server": "aliyun-quic-dns"
       },
       {
@@ -81,12 +92,12 @@
             "rule_set": "cnip-rule"
           }
         ],
-        "action": "route-options",
         "client_subnet": "1.1.0.0/24",
         "server": "google-dns"
       }
     ],
     "final": "google-dns",
+    "strategy": "prefer_ipv6",
     "independent_cache": true,
     "client_subnet": "1.1.0.0/24"
   },
@@ -98,14 +109,9 @@
         "172.19.0.1/30",
         "fdfe:dcba:9876::1/126"
       ],
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
-      ],
-      "mtu": 1492,
+      "mtu": 9000,
       "auto_route": true,
       "auto_redirect": true,
-      "strict_route": true,
       "stack": "mixed"
     },
     {
@@ -113,13 +119,9 @@
       "tag": "mixed-in",
       "listen": "::",
       "listen_port": 5330,
+      "tcp_fast_open": true,
+      "udp_fragment": true,
       "set_system_proxy": false
-    },
-    {
-      "type": "direct",
-      "tag": "direct-in",
-      "listen": "::",
-      "listen_port": 5353
     }
   ],
   "outbounds": [
@@ -132,8 +134,8 @@
       "type": "selector",
       "outbounds": [
         "🎯 全球直连",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -146,6 +148,14 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "🚀 手动切换",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "♻️ 自动选择",
       "type": "urltest",
       "outbounds": [
@@ -155,14 +165,6 @@
       "interval": "1m",
       "tolerance": 20,
       "interrupt_exist_connections": false
-    },
-    {
-      "tag": "🚀 手动切换",
-      "type": "selector",
-      "outbounds": [
-        "{all}"
-      ],
-      "interrupt_exist_connections": true
     },
     {
       "tag": "📈 网络测试",
@@ -179,8 +181,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
         "🇺🇸 美国节点",
@@ -197,8 +199,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -215,8 +217,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -233,8 +235,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -256,7 +258,7 @@
         {
           "action": "include",
           "keywords": [
-            "SG|原生"
+            "HK|TW|SG|原生"
           ]
         }
       ],
@@ -267,8 +269,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -286,8 +288,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -304,8 +306,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -322,8 +324,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -340,8 +342,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -396,8 +398,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -415,8 +417,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -434,8 +436,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -452,8 +454,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -471,8 +473,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -490,8 +492,8 @@
       "outbounds": [
         "🎯 全球直连",
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🇭🇰 香港节点",
         "🇨🇳 台湾节点",
         "🇸🇬 狮城节点",
@@ -508,8 +510,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
-        "🚀 手动切换"
+        "🚀 手动切换",
+        "♻️ 自动选择"
       ],
       "default": "🚀 节点选择"
     },
@@ -518,8 +520,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
-        "🚀 手动切换"
+        "🚀 手动切换",
+        "♻️ 自动选择"
       ],
       "default": "🚀 节点选择",
       "interrupt_exist_connections": true
@@ -659,8 +661,8 @@
       "type": "selector",
       "outbounds": [
         "🚀 节点选择",
-        "♻️ 自动选择",
         "🚀 手动切换",
+        "♻️ 自动选择",
         "🎯 全球直连"
       ]
     },
@@ -676,28 +678,24 @@
   "route": {
     "rules": [
       {
-        "inbound": "tun-in",
         "action": "sniff"
       },
       {
-        "protocol": "dns",
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
         "action": "hijack-dns"
       },
       {
         "ip_is_private": true,
-        "inbound": "direct-in",
         "outbound": "🎯 全球直连"
-      },
-      {
-        "rule_set": [
-          "ads-rule",
-          "geosite-cryptominers-rule",
-          "geosite-malware-rule",
-          "geoip-malware-rule",
-          "geosite-phishing-rule",
-          "geoip-phishing-rule"
-        ],
-        "action": "reject"
       },
       {
         "clash_mode": "Direct",
@@ -722,7 +720,8 @@
             "protocol": "stun"
           }
         ],
-        "action": "reject"
+        "action": "reject",
+        "method": "drop"
       },
       {
         "protocol": [
@@ -755,10 +754,6 @@
         "outbound": "🎯 全球直连"
       },
       {
-        "rule_set": "talkatoneads-rule",
-        "action": "reject"
-      },
-      {
         "rule_set": "talkatonecdn-rule",
         "outbound": "🎯 全球直连"
       },
@@ -781,11 +776,18 @@
         "outbound": "🎮 游戏服务"
       },
       {
+        "rule_set": "telegramip-rule",
+        "outbound": "📲 电报消息"
+      },
+      {
         "rule_set": "youtube-rule",
         "outbound": "📹 油管视频"
       },
       {
-        "rule_set": "netflix-rule",
+        "rule_set": [
+          "netflix-rule",
+          "netflixip-rule"
+        ],
         "outbound": "🎥 奈飞视频"
       },
       {
@@ -835,14 +837,6 @@
       {
         "rule_set": "cn-rule",
         "outbound": "🇨🇳 直连域名"
-      },
-      {
-        "rule_set": "netflixip-rule",
-        "outbound": "🎥 奈飞视频"
-      },
-      {
-        "rule_set": "telegramip-rule",
-        "outbound": "📲 电报消息"
       },
       {
         "rule_set": "cnip-rule",
@@ -961,14 +955,6 @@
       },
       {
         "type": "remote",
-        "tag": "fakeip-filter-rule",
-        "format": "binary",
-        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/fakeip-filter.srs",
-        "download_detour": "🎯 全球直连",
-        "update_interval": "12h"
-      },
-      {
-        "type": "remote",
         "tag": "games-cn-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/games-cn.srs",
@@ -1068,7 +1054,7 @@
         "tag": "tiktok-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/tiktok.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1076,7 +1062,7 @@
         "tag": "youtube-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/youtube.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1084,7 +1070,7 @@
         "tag": "geosite-cryptominers-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-cryptominers.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1092,7 +1078,7 @@
         "tag": "geosite-malware-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-malware.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1100,7 +1086,7 @@
         "tag": "geoip-malware-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-malware.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1108,7 +1094,7 @@
         "tag": "geosite-phishing-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geosite-phishing.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
       },
       {
@@ -1116,16 +1102,17 @@
         "tag": "geoip-phishing-rule",
         "format": "binary",
         "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/hiddify/hiddify-geo/refs/heads/rule-set/block/geoip-phishing.srs",
-        "download_detour": " 全球直连",
+        "download_detour": "🎯 全球直连",
         "update_interval": "12h"
+      },
+      {
+        "type": "remote",
+        "tag": "adblock-reject-rule",
+        "format": "binary",
+        "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/REIJI007/AdBlock_Rule_For_Sing-box/main/adblock_reject.srs",
+        "download_detour": "🎯 全球直连",
+        "update_interval": "1h"
       }
     ]
-  },
-  "ntp": {
-    "enabled": true,
-    "server": "time.apple.com",
-    "server_port": 123,
-    "interval": "30m",
-    "detour": " 全球直连"
   }
 }
