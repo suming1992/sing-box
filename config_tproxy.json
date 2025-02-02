@@ -47,7 +47,7 @@
                     "HTTPS",
                     "SVCB"
                 ],
-                "server": "block-dns"
+                "action": "reject"
             },
             {
                 "outbound": "any",
