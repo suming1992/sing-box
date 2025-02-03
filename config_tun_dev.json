@@ -1,7 +1,7 @@
 {
     "log": {
         "disabled": false,
-        "level": "warn",
+        "level": "info",
         "timestamp": true
     },
     "experimental": {
@@ -53,20 +53,6 @@
                 "outbound": "any",
                 "disable_cache": true,
                 "server": "default-dns"
-            },
-            {
-                "rule_set": [
-                    "adblock-reject-rule",
-                    "talkatoneads-rule",
-                    "geosite-cryptominers-rule",
-                    "geosite-malware-rule",
-                    "geoip-malware-rule",
-                    "geosite-phishing-rule",
-                    "geoip-phishing-rule"
-                ],
-                "disable_cache": true,
-                "action": "reject",
-                "method": "drop"
             },
             {
                 "clash_mode": "Direct",
@@ -162,7 +148,7 @@
                 "{all}"
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -370,7 +356,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -389,7 +375,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -541,7 +527,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -560,7 +546,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -579,7 +565,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -598,7 +584,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -617,7 +603,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -636,7 +622,7 @@
                 }
             ],
             "url": "http://www.apple.com/library/test/success.html",
-            "interval": "1m",
+            "interval": "3m",
             "tolerance": 20,
             "interrupt_exist_connections": false
         },
@@ -696,6 +682,19 @@
             {
                 "ip_is_private": true,
                 "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": [
+                    "adblock-reject-rule",
+                    "talkatoneads-rule",
+                    "geosite-cryptominers-rule",
+                    "geosite-malware-rule",
+                    "geoip-malware-rule",
+                    "geosite-phishing-rule",
+                    "geoip-phishing-rule"
+                ],
+                "action": "reject",
+                "method": "drop"
             },
             {
                 "clash_mode": "Direct",
