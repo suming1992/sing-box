@@ -43,10 +43,7 @@
         ],
         "rules": [
             {
-                "query_type": [
-                    "HTTPS",
-                    "SVCB"
-                ],
+                "query_type": "HTTPS",
                 "action": "reject"
             },
             {
