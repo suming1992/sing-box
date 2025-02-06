@@ -56,6 +56,7 @@
             },
             {
                 "outbound": "any",
+                "action": "route-options",
                 "disable_cache": true,
                 "server": "default-dns"
             },
@@ -83,13 +84,13 @@
                         "rule_set": "cnip-rule"
                     }
                 ],
+                "action": "route-options",
                 "client_subnet": "1.1.0.0/24",
                 "server": "google-dns"
             }
         ],
         "final": "google-dns",
         "strategy": "prefer_ipv6",
-        "independent_cache": true,
         "client_subnet": "1.1.0.0/24"
     },
     "inbounds": [
@@ -672,16 +673,7 @@
                 "action": "sniff"
             },
             {
-                "type": "logical",
-                "mode": "or",
-                "rules": [
-                    {
-                        "protocol": "dns"
-                    },
-                    {
-                        "port": 53
-                    }
-                ],
+                "protocol": "dns",
                 "action": "hijack-dns"
             },
             {
