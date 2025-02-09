@@ -16,8 +16,7 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": false,
-            "store_rdrc": true
+            "store_fakeip": false
         }
     },
     "dns": {
@@ -62,14 +61,18 @@
             },
             {
                 "clash_mode": "Direct",
+                "action": "route",
                 "server": "aliyun-quic-dns"
             },
             {
                 "clash_mode": "Global",
+                "action": "route-options",
+                "client_subnet": "1.1.0.0/24",
                 "server": "google-dns"
             },
             {
                 "rule_set": "cn-rule",
+                "action": "route",
                 "server": "aliyun-quic-dns"
             },
             {
@@ -182,7 +185,7 @@
                 "🇰🇷 韩国节点",
                 "🇺🇳 其他节点"
             ],
-            "default": "🇨🇳 台湾节点",
+            "default": "🇺🇸 美国节点",
             "interrupt_exist_connections": true
         },
         {
