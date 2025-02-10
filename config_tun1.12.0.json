@@ -33,7 +33,7 @@
                 "tag": "tencent-dns",
                 "server": "120.53.53.53",
                 "server_port": 443,
-                "detour": "♻️ 自动选择"
+                "detour": "🎯 全球直连"
             }
         ],
         "rules": [
