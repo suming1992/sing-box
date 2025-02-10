@@ -660,8 +660,7 @@
     "route": {
         "default_domain_resolver": {
             "server": "aliyun-dns",
-            "rewrite_tll": 60,
-            "client_subnet": "1.1.0.0/24"
+            "rewrite_tll": 60
         },
         "rules": [
             {
