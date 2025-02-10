@@ -43,15 +43,26 @@
                 "action": "reject"
             },
             {
-                "rule_set": [
-                    "adblock-reject-rule",
-                    "talkatoneads-rule"
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "clash_mode": "AllowAds",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": [
+                            "adblock-reject-rule",
+                            "talkatoneads-rule"
+                        ]
+                    }
                 ],
                 "action": "reject",
                 "method": "drop"
             },
             {
                 "clash_mode": "Direct",
+                "action": "route",
                 "server": "aliyun-dns"
             },
             {
@@ -62,6 +73,7 @@
             },
             {
                 "rule_set": "cn-rule",
+                "action": "route",
                 "server": "aliyun-dns"
             },
             {
