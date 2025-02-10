@@ -51,8 +51,6 @@
             },
             {
                 "clash_mode": "Direct",
-                "action": "route-options",
-                "client_subnet": "1.1.0.0/24",
                 "server": "aliyun-dns"
             },
             {
@@ -63,8 +61,6 @@
             },
             {
                 "rule_set": "cn-rule",
-                "action": "route-options",
-                "client_subnet": "1.1.0.0/24",
                 "server": "aliyun-dns"
             },
             {
