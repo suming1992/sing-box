@@ -39,6 +39,10 @@
         ],
         "rules": [
             {
+                "query_type": "HTTPS",
+                "action": "reject"
+            },
+            {
                 "rule_set": [
                     "adblock-reject-rule",
                     "talkatoneads-rule"
