@@ -16,19 +16,11 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": false,
-            "store_rdrc": true
+            "store_fakeip": false
         }
     },
     "dns": {
         "servers": [
-            {
-                "type": "udp",
-                "tag": "default-dns",
-                "server": "218.85.157.99",
-                "server_port": 53,
-                "detour": "🎯 全球直连"
-            },
             {
                 "type": "https",
                 "tag": "google-dns",
@@ -668,7 +660,7 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "default-dns",
+            "server": "aliyun-dns",
             "rewrite_tll": 60
         },
         "rules": [
