@@ -26,7 +26,6 @@
                 "type": "quic",
                 "tag": "aliyun-dns",
                 "server": "223.5.5.5",
-                "path": "/dns-query",
                 "server_port": 853,
                 "detour": "🎯 全球直连"
             },
@@ -34,7 +33,6 @@
                 "type": "https",
                 "tag": "google-dns",
                 "server": "8.8.8.8",
-                "path": "/dns-query",
                 "server_port": 443,
                 "detour": "♻️ 自动选择"
             }
