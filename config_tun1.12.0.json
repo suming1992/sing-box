@@ -29,11 +29,11 @@
                 "detour": "♻️ 自动选择"
             },
             {
-                "type": "quic",
-                "tag": "aliyun-dns",
-                "server": "223.5.5.5",
-                "server_port": 853,
-                "detour": "🎯 全球直连"
+                "type": "https",
+                "tag": "tencent-dns",
+                "server": "120.53.53.53",
+                "server_port": 443,
+                "detour": "♻️ 自动选择"
             }
         ],
         "rules": [
@@ -53,7 +53,7 @@
                 "clash_mode": "Direct",
                 "action": "route-options",
                 "client_subnet": "1.1.0.0/24",
-                "server": "aliyun-dns"
+                "server": "tencent-dns"
             },
             {
                 "clash_mode": "Global",
@@ -65,7 +65,7 @@
                 "rule_set": "cn-rule",
                 "action": "route-options",
                 "client_subnet": "1.1.0.0/24",
-                "server": "aliyun-dns"
+                "server": "tencent-dns"
             },
             {
                 "type": "logical",
@@ -664,7 +664,7 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "aliyun-dns",
+            "server": "tencent-dns",
             "rewrite_tll": 60,
             "client_subnet": "1.1.0.0/24"
         },
