@@ -16,7 +16,8 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": false
+            "store_fakeip": false,
+            "store_rdrc": true
         }
     },
     "dns": {
@@ -42,6 +43,12 @@
         ],
         "rules": [
             {
+                "outbound": "any",
+                "action": "route-options",
+                "disable_cache": true,
+                "server": "default-dns"
+            },
+            {
                 "query_type": "HTTPS",
                 "action": "reject"
             },
@@ -52,12 +59,6 @@
                 ],
                 "action": "reject",
                 "method": "drop"
-            },
-            {
-                "outbound": "any",
-                "action": "route-options",
-                "disable_cache": true,
-                "server": "default-dns"
             },
             {
                 "clash_mode": "Direct",
@@ -94,6 +95,7 @@
         ],
         "final": "google-dns",
         "strategy": "prefer_ipv6",
+        "independent_cache": true,
         "client_subnet": "1.1.0.0/24"
     },
     "inbounds": [
