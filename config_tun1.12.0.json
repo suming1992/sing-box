@@ -23,10 +23,7 @@
     "dns": {
         "servers": [
             {
-                "type": "udp",
-                "tag": "default-dns",
-                "server": "218.85.157.99",
-                "server_port": 53,
+                "type": "local",
                 "detour": "🎯 全球直连"
             },
             {
@@ -668,7 +665,9 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "default-dns"
+            "server": "local",
+            "rewrite_tll": 60,
+            "client_subnet": "1.1.0.0/24"
         },
         "rules": [
             {
