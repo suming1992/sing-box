@@ -16,31 +16,30 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": false
+            "store_fakeip": false,
+            "store_rdrc": true
         }
     },
     "dns": {
         "servers": [
             {
-                "type": "https",
-                "tag": "google-dns",
-                "server": "8.8.8.8",
-                "server_port": 443,
-                "detour": "♻️ 自动选择"
-            },
-            {
                 "type": "quic",
                 "tag": "aliyun-dns",
                 "server": "223.5.5.5",
+                "path": "/dns-query",
                 "server_port": 853,
                 "detour": "🎯 全球直连"
+            },
+            {
+                "type": "https",
+                "tag": "google-dns",
+                "server": "8.8.8.8",
+                "path": "/dns-query",
+                "server_port": 443,
+                "detour": "♻️ 自动选择"
             }
         ],
         "rules": [
-            {
-                "query_type": "HTTPS",
-                "action": "reject"
-            },
             {
                 "rule_set": [
                     "adblock-reject-rule",
@@ -82,7 +81,8 @@
         ],
         "final": "google-dns",
         "strategy": "prefer_ipv6",
-        "client_subnet": "1.1.0.0/24"
+        "client_subnet": "1.1.0.0/24",
+        "independent_cache": true
     },
     "inbounds": [
         {
