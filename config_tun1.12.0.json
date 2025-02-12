@@ -1,6 +1,7 @@
 {
     "log": {
         "disabled": false,
+        "output": "/etc/sing-box/box.log",
         "level": "info",
         "timestamp": true
     },
@@ -16,8 +17,7 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": false,
-            "store_rdrc": true
+            "store_fakeip": false
         }
     },
     "dns": {
@@ -39,8 +39,15 @@
         ],
         "rules": [
             {
-                "query_type": "HTTPS",
-                "action": "reject"
+                "query_type": [
+                    "A",
+                    "AAAA",
+                    "CNAME"
+                ],
+                "invert": true,
+                "action": "reject",
+                "method": "drop",
+                "disable_cache": true
             },
             {
                 "type": "logical",
@@ -62,7 +69,6 @@
             },
             {
                 "clash_mode": "Direct",
-                "action": "route",
                 "server": "aliyun-dns"
             },
             {
@@ -73,7 +79,6 @@
             },
             {
                 "rule_set": "cn-rule",
-                "action": "route",
                 "server": "aliyun-dns"
             },
             {
@@ -682,6 +687,24 @@
                 "outbound": "🎯 全球直连"
             },
             {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "clash_mode": "AllowAds",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": [
+                            "adblock-reject-rule",
+                            "talkatoneads-rule"
+                        ]
+                    }
+                ],
+                "action": "reject",
+                "method": "drop"
+            },
+            {
                 "clash_mode": "Direct",
                 "outbound": "🎯 全球直连"
             },
@@ -711,9 +734,6 @@
                 "protocol": [
                     "BitTorrent"
                 ],
-                "outbound": "🎯 全球直连"
-            },
-            {
                 "domain": [
                     "clash.razord.top",
                     "yacd.metacubex.one",
@@ -723,22 +743,12 @@
                 "domain_suffix": [
                     ".cn"
                 ],
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "applications-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "customize_download-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "customize_direct-rule",
-                "outbound": "🎯 全球直连"
-            },
-            {
-                "rule_set": "talkatonecdn-rule",
+                "rule_set": [
+                    "applications-rule",
+                    "customize_download-rule",
+                    "customize_direct-rule",
+                    "talkatonecdn-rule"
+                ],
                 "outbound": "🎯 全球直连"
             },
             {
