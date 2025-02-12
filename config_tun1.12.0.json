@@ -734,21 +734,37 @@
                 "protocol": [
                     "BitTorrent"
                 ],
+                "outbound": "🎯 全球直连"
+            },
+            {
                 "domain": [
                     "clash.razord.top",
                     "yacd.metacubex.one",
                     "yacd.haishan.me",
                     "d.metacubex.one"
                 ],
+                "outbound": "🎯 全球直连"
+            },
+            {
                 "domain_suffix": [
                     ".cn"
                 ],
-                "rule_set": [
-                    "applications-rule",
-                    "customize_download-rule",
-                    "customize_direct-rule",
-                    "talkatonecdn-rule"
-                ],
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "applications-rule",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "customize_download-rule",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "customize_direct-rule",
+                "outbound": "🎯 全球直连"
+            },
+            {
+                "rule_set": "talkatonecdn-rule",
                 "outbound": "🎯 全球直连"
             },
             {
