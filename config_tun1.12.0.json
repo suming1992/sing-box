@@ -2,7 +2,7 @@
     "log": {
         "disabled": false,
         "output": "/etc/sing-box/box.log",
-        "level": "info",
+        "level": "warn",
         "timestamp": true
     },
     "experimental": {
@@ -123,6 +123,17 @@
             "auto_redirect": true,
             "strict_route": true,
             "stack": "mixed"
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "::",
+            "listen_port": 2080,
+            "tcp_fast_open": true,
+            "tcp_multi_path": true,
+            "udp_fragment": true,
+            "users": [],
+            "set_system_proxy": false
         }
     ],
     "outbounds": [
