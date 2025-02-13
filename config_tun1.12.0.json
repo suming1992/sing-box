@@ -740,15 +740,6 @@
                 "outbound": "🎯 全球直连"
             },
             {
-                "domain": [
-                    "clash.razord.top",
-                    "yacd.metacubex.one",
-                    "yacd.haishan.me",
-                    "d.metacubex.one"
-                ],
-                "outbound": "🎯 全球直连"
-            },
-            {
                 "domain_suffix": [
                     ".cn"
                 ],
