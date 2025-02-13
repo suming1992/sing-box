@@ -23,6 +23,13 @@
     "dns": {
         "servers": [
             {
+                "type": "udp",
+                "tag": "default-dns",
+                "server": "218.85.157.99",
+                "server_port": 53,
+                "detour": "🎯 全球直连"
+            },
+            {
                 "type": "quic",
                 "tag": "aliyun-dns",
                 "server": "223.5.5.5",
@@ -671,8 +678,7 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "aliyun-dns",
-            "rewrite_tll": 60
+            "server": "default-dns"
         },
         "rules": [
             {
