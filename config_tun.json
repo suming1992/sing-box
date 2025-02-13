@@ -1,6 +1,7 @@
 {
     "log": {
         "disabled": false,
+        "output": "/etc/sing-box/box.log",
         "level": "info",
         "timestamp": true
     },
@@ -16,8 +17,7 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": false,
-            "store_rdrc": true
+            "store_fakeip": false
         }
     },
     "dns": {
@@ -49,20 +49,36 @@
                 "server": "default-dns"
             },
             {
-                "query_type": "HTTPS",
-                "action": "reject"
+                "query_type": [
+                    "A",
+                    "AAAA",
+                    "CNAME"
+                ],
+                "invert": true,
+                "action": "reject",
+                "method": "drop",
+                "disable_cache": true
             },
             {
-                "rule_set": [
-                    "adblock-reject-rule",
-                    "talkatoneads-rule"
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "clash_mode": "AllowAds",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": [
+                            "adblock-reject-rule",
+                            "talkatoneads-rule"
+                        ]
+                    }
                 ],
                 "action": "reject",
                 "method": "drop"
             },
             {
                 "clash_mode": "Direct",
-                "action": "route",
                 "server": "aliyun-quic-dns"
             },
             {
@@ -73,7 +89,6 @@
             },
             {
                 "rule_set": "cn-rule",
-                "action": "route",
                 "server": "aliyun-quic-dns"
             },
             {
@@ -111,15 +126,6 @@
             "auto_redirect": true,
             "strict_route": true,
             "stack": "mixed"
-        },
-        {
-            "type": "mixed",
-            "tag": "mixed-in",
-            "listen": "::",
-            "listen_port": 5330,
-            "tcp_fast_open": true,
-            "udp_fragment": true,
-            "set_system_proxy": false
         }
     ],
     "outbounds": [
@@ -687,6 +693,24 @@
                 "outbound": "🎯 全球直连"
             },
             {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "clash_mode": "AllowAds",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": [
+                            "adblock-reject-rule",
+                            "talkatoneads-rule"
+                        ]
+                    }
+                ],
+                "action": "reject",
+                "method": "drop"
+            },
+            {
                 "clash_mode": "Direct",
                 "outbound": "🎯 全球直连"
             },
@@ -725,6 +749,9 @@
                     "yacd.haishan.me",
                     "d.metacubex.one"
                 ],
+                "outbound": "🎯 全球直连"
+            },
+            {
                 "domain_suffix": [
                     ".cn"
                 ],
