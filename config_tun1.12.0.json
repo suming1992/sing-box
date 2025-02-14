@@ -2,7 +2,7 @@
     "log": {
         "disabled": false,
         "output": "/etc/sing-box/box.log",
-        "level": "warn",
+        "level": "info",
         "timestamp": true
     },
     "experimental": {
@@ -118,10 +118,17 @@
                 "172.19.0.1/30",
                 "fdfe:dcba:9876::1/126"
             ],
-            "mtu": 1492,
+            "mtu": 9000,
             "auto_route": true,
             "strict_route": true,
-            "stack": "system"
+            "stack": "mixed",
+            "platform": {
+                "http_proxy": {
+                    "enabled": true,
+                    "server": "127.0.0.1",
+                    "server_port": 7890
+                }
+            }
         }
     ],
     "outbounds": [
