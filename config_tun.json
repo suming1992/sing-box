@@ -740,9 +740,6 @@
                     {
                         "network": "udp",
                         "port": 443
-                    },
-                    {
-                        "protocol": "stun"
                     }
                 ],
                 "action": "reject",
