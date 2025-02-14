@@ -23,31 +23,28 @@
     "dns": {
         "servers": [
             {
+                "type": "udp",
                 "tag": "default-dns",
-                "address": "218.85.157.99",
+                "server": "218.85.157.99",
+                "server_port": 53,
                 "detour": "🎯 全球直连"
             },
             {
+                "type": "quic",
+                "tag": "aliyun-dns",
+                "server": "223.5.5.5",
+                "server_port": 853,
+                "detour": "🎯 全球直连"
+            },
+            {
+                "type": "https",
                 "tag": "google-dns",
-                "address": "https://8.8.8.8/dns-query",
-                "strategy": "prefer_ipv6",
-                "client_subnet": "1.1.0.0/24",
+                "server": "8.8.8.8",
+                "server_port": 443,
                 "detour": "♻️ 自动选择"
-            },
-            {
-                "tag": "aliyun-quic-dns",
-                "address": "quic://223.5.5.5:853",
-                "strategy": "prefer_ipv6",
-                "detour": "🎯 全球直连"
             }
         ],
         "rules": [
-            {
-                "outbound": "any",
-                "action": "route-options",
-                "disable_cache": true,
-                "server": "default-dns"
-            },
             {
                 "query_type": [
                     "A",
@@ -79,7 +76,7 @@
             },
             {
                 "clash_mode": "Direct",
-                "server": "aliyun-quic-dns"
+                "server": "aliyun-dns"
             },
             {
                 "clash_mode": "Global",
@@ -89,7 +86,7 @@
             },
             {
                 "rule_set": "cn-rule",
-                "server": "aliyun-quic-dns"
+                "server": "aliyun-dns"
             },
             {
                 "type": "logical",
@@ -110,8 +107,8 @@
         ],
         "final": "google-dns",
         "strategy": "prefer_ipv6",
-        "independent_cache": true,
-        "client_subnet": "1.1.0.0/24"
+        "client_subnet": "1.1.0.0/24",
+        "independent_cache": true
     },
     "inbounds": [
         {
@@ -691,6 +688,9 @@
         }
     ],
     "route": {
+        "default_domain_resolver": {
+            "server": "default-dns"
+        },
         "rules": [
             {
                 "action": "sniff"
@@ -740,9 +740,6 @@
                     {
                         "network": "udp",
                         "port": 443
-                    },
-                    {
-                        "protocol": "stun"
                     }
                 ],
                 "action": "reject",
