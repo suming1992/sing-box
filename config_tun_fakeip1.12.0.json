@@ -110,7 +110,7 @@
             }
         ],
         "final": "google-dns",
-        "strategy": "prefer_ipv4",
+        "strategy": "prefer_ipv6",
         "client_subnet": "1.1.0.0/24",
         "independent_cache": true
     },
