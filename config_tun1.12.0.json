@@ -75,19 +75,16 @@
             },
             {
                 "clash_mode": "Direct",
-                "strategy": "prefer_ipv6",
                 "server": "aliyun-dns"
             },
             {
                 "clash_mode": "Global",
                 "action": "route-options",
-                "strategy": "prefer_ipv4",
                 "client_subnet": "1.1.0.0/24",
                 "server": "google-dns"
             },
             {
                 "rule_set": "cn-rule",
-                "strategy": "prefer_ipv6",
                 "server": "aliyun-dns"
             },
             {
@@ -103,7 +100,6 @@
                     }
                 ],
                 "action": "route-options",
-                "strategy": "prefer_ipv4",
                 "client_subnet": "1.1.0.0/24",
                 "server": "google-dns"
             }
