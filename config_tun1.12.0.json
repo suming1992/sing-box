@@ -46,10 +46,14 @@
         ],
         "rules": [
             {
-                "query_type": "HTTPS",
+                "query_type": [
+                    "A",
+                    "AAAA",
+                    "CNAME"
+                ],
+                "invert": true,
                 "action": "reject",
-                "method": "drop",
-                "disable_cache": true
+                "method": "drop"
             },
             {
                 "type": "logical",
@@ -71,16 +75,19 @@
             },
             {
                 "clash_mode": "Direct",
+                "strategy": "prefer_ipv6",
                 "server": "aliyun-dns"
             },
             {
                 "clash_mode": "Global",
                 "action": "route-options",
+                "strategy": "prefer_ipv4",
                 "client_subnet": "1.1.0.0/24",
                 "server": "google-dns"
             },
             {
                 "rule_set": "cn-rule",
+                "strategy": "prefer_ipv6",
                 "server": "aliyun-dns"
             },
             {
@@ -96,12 +103,13 @@
                     }
                 ],
                 "action": "route-options",
+                "strategy": "prefer_ipv4",
                 "client_subnet": "1.1.0.0/24",
                 "server": "google-dns"
             }
         ],
         "final": "google-dns",
-        "strategy": "prefer_ipv6",
+        "strategy": "prefer_ipv4",
         "client_subnet": "1.1.0.0/24",
         "independent_cache": true
     },
@@ -684,7 +692,10 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "default-dns"
+            "server": "default-dns",
+            "strategy": "prefer_ipv4",
+            "disable_cache": true,
+            "rewrite_ttl": 60
         },
         "rules": [
             {
