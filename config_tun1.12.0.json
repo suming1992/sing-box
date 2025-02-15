@@ -105,7 +105,6 @@
             }
         ],
         "final": "google-dns",
-        "strategy": "ipv4_only",
         "client_subnet": "1.1.0.0/24",
         "independent_cache": true
     },
