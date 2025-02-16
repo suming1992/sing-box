@@ -688,7 +688,6 @@
     "route": {
         "default_domain_resolver": {
             "server": "default-dns",
-            "strategy": "prefer_ipv4",
             "disable_cache": true,
             "rewrite_ttl": 60
         },
