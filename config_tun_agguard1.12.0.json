@@ -15,7 +15,7 @@
             "default_mode": "Rule"
         },
         "cache_file": {
-            "enabled": false,
+            "enabled": true,
             "path": "/etc/sing-box/cache.db",
             "store_fakeip": false
         }
@@ -30,17 +30,17 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "type": "udp",
-                "tag": "smartdns-cn",
-                "server": "127.0.0.1",
-                "server_port": 1053,
+                "type": "quic",
+                "tag": "aliyun-dns",
+                "server": "223.5.5.5",
+                "server_port": 853,
                 "detour": "🎯 全球直连"
             },
             {
                 "type": "udp",
-                "tag": "smartdns-gw",
+                "tag": "adguardhome",
                 "server": "127.0.0.1",
-                "server_port": 2053,
+                "server_port": 5553,
                 "detour": "🎯 全球直连"
             }
         ],
@@ -52,6 +52,7 @@
                     "CNAME"
                 ],
                 "invert": true,
+                "disable_cache": true,
                 "action": "reject",
                 "method": "drop"
             },
@@ -70,20 +71,22 @@
                         ]
                     }
                 ],
+                "disable_cache": true,
                 "action": "reject",
                 "method": "drop"
             },
             {
                 "clash_mode": "Direct",
-                "server": "smartdns-cn"
+                "server": "aliyun-dns"
             },
             {
                 "clash_mode": "Global",
-                "server": "smartdns-gw"
+                "disable_cache": true,
+                "server": "adguardhome"
             },
             {
                 "rule_set": "cn-rule",
-                "server": "smartdns-cn"
+                "server": "aliyun-dns"
             },
             {
                 "type": "logical",
@@ -97,10 +100,12 @@
                         "rule_set": "cnip-rule"
                     }
                 ],
-                "server": "smartdns-gw"
+                "server": "adguardhome",
+                "disable_cache": true
             }
         ],
-        "final": "smartdns-gw"
+        "final": "adguardhome",
+        "disable_cache": true
     },
     "inbounds": [
         {
@@ -682,6 +687,7 @@
     "route": {
         "default_domain_resolver": {
             "server": "default-dns",
+            "disable_cache": true,
             "rewrite_ttl": 60
         },
         "rules": [
