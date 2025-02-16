@@ -23,6 +23,13 @@
     "dns": {
         "servers": [
             {
+                "type": "udp",
+                "tag": "tencent-dns",
+                "server": "119.29.29.29",
+                "server_port": 53,
+                "detour": "🎯 全球直连"
+            },
+            {
                 "type": "quic",
                 "tag": "aliyun-dns",
                 "server": "223.5.5.5",
@@ -680,7 +687,7 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "aliyun-dns",
+            "server": "tencent-dns",
             "disable_cache": true,
             "rewrite_ttl": 60
         },
