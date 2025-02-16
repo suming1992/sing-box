@@ -24,8 +24,8 @@
         "servers": [
             {
                 "type": "udp",
-                "tag": "tencent-dns",
-                "server": "119.29.29.29",
+                "tag": "default-dns",
+                "server": "218.85.157.99",
                 "server_port": 53,
                 "detour": "🎯 全球直连"
             },
@@ -687,7 +687,7 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "tencent-dns",
+            "server": "default-dns",
             "disable_cache": true,
             "rewrite_ttl": 60
         },
