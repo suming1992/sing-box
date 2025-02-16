@@ -17,7 +17,7 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": true
+            "store_fakeip": false
         }
     },
     "dns": {
@@ -108,9 +108,24 @@
                 ],
                 "server": "google-dns"
             }
+            {
+                "type": "logical",
+                "mode": "and",
+                "rules": [
+                    {
+                        "rule_set": "proxy-rule",
+                        "invert": true
+                    },
+                    {
+                        "rule_set": "cnip-rule"
+                    }
+                ],
+                "action": "route-options",
+                "client_subnet": "1.1.0.0/24",
+                "server": "google-dns"
+            }
         ],
         "final": "google-dns",
-        "strategy": "prefer_ipv6",
         "client_subnet": "1.1.0.0/24",
         "independent_cache": true
     },
@@ -693,7 +708,10 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "default-dns"
+            "server": "default-dns",
+            "strategy": "prefer_ipv4",
+            "disable_cache": true,
+            "rewrite_ttl": 60
         },
         "rules": [
             {
