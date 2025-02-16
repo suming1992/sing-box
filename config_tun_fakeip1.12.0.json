@@ -17,7 +17,7 @@
         "cache_file": {
             "enabled": true,
             "path": "/etc/sing-box/cache.db",
-            "store_fakeip": true
+            "store_fakeip": false
         }
     },
     "dns": {
@@ -107,7 +107,7 @@
                     "CNAME"
                 ],
                 "server": "google-dns"
-            }
+            },
             {
                 "type": "logical",
                 "mode": "and",
