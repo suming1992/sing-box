@@ -38,6 +38,13 @@
             },
             {
                 "type": "https",
+                "tag": "tencent-dns",
+                "server": "120.53.53.53",
+                "server_port": 443,
+                "detour": "🎯 全球直连"
+            },
+            {
+                "type": "https",
                 "tag": "google-dns",
                 "server": "8.8.8.8",
                 "server_port": 443,
@@ -75,7 +82,7 @@
             },
             {
                 "clash_mode": "Direct",
-                "server": "aliyun-dns"
+                "server": "tencent-dns"
             },
             {
                 "clash_mode": "Global",
@@ -85,7 +92,7 @@
             },
             {
                 "rule_set": "cn-rule",
-                "server": "aliyun-dns"
+                "server": "tencent-dns"
             },
             {
                 "type": "logical",
