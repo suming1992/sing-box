@@ -798,7 +798,10 @@
                 "outbound": "🎮 游戏服务"
             },
             {
-                "rule_set": "telegramip-rule",
+                "rule_set": [
+                    "telegram-rule",
+                    "telegramip-rule"
+                ],
                 "outbound": "📲 电报消息"
             },
             {
@@ -1065,9 +1068,17 @@
             },
             {
                 "type": "remote",
+                "tag": "telegram-rule",
+                "format": "binary",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/telegram.srs",
+                "download_detour": "🎯 全球直连",
+                "update_interval": "12h"
+            },
+            {
+                "type": "remote",
                 "tag": "telegramip-rule",
                 "format": "binary",
-                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/telegramip.srs",
+                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/telegram.srs",
                 "download_detour": "🎯 全球直连",
                 "update_interval": "12h"
             },
