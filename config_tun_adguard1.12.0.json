@@ -30,17 +30,17 @@
                 "detour": "🎯 全球直连"
             },
             {
-                "type": "quic",
-                "tag": "aliyun-dns",
-                "server": "223.5.5.5",
-                "server_port": 853,
+                "type": "udp",
+                "tag": "adguardhome-cn",
+                "server": "127.0.0.1",
+                "server_port": 1745,
                 "detour": "🎯 全球直连"
             },
             {
                 "type": "udp",
-                "tag": "adguardhome",
-                "server": "127.0.0.1",
-                "server_port": 5553,
+                "tag": "adguardhome-gw",
+                "server": "172.17.0.2",
+                "server_port": 2053,
                 "detour": "🎯 全球直连"
             }
         ],
@@ -77,16 +77,18 @@
             },
             {
                 "clash_mode": "Direct",
-                "server": "aliyun-dns"
+                "disable_cache": true,
+                "server": "adguardhome-cn"
             },
             {
                 "clash_mode": "Global",
                 "disable_cache": true,
-                "server": "adguardhome"
+                "server": "adguardhome-gw"
             },
             {
                 "rule_set": "cn-rule",
-                "server": "aliyun-dns"
+                "disable_cache": true,
+                "server": "adguardhome-cn"
             },
             {
                 "type": "logical",
@@ -100,7 +102,7 @@
                         "rule_set": "cnip-rule"
                     }
                 ],
-                "server": "adguardhome",
+                "server": "adguardhome-gw",
                 "disable_cache": true
             }
         ],
