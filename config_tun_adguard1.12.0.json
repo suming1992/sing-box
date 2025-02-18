@@ -86,11 +86,6 @@
                 "server": "adguardhome-gw"
             },
             {
-                "rule_set": "customize_direct-rule",
-                "disable_cache": true,
-                "server": "adguardhome-cn"
-            },
-            {
                 "rule_set": "cn-rule",
                 "disable_cache": true,
                 "server": "adguardhome-cn"
