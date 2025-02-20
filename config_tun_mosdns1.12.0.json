@@ -24,13 +24,6 @@
         "servers": [
             {
                 "type": "udp",
-                "tag": "default-dns",
-                "server": "218.85.157.99",
-                "server_port": 53,
-                "detour": "🎯 全球直连"
-            },
-            {
-                "type": "udp",
                 "tag": "mosdns",
                 "server": "127.0.0.1",
                 "server_port": 5335,
@@ -68,16 +61,6 @@
                 "disable_cache": true,
                 "action": "reject",
                 "method": "drop"
-            },
-            {
-                "clash_mode": "Direct",
-                "disable_cache": true,
-                "server": "mosdns"
-            },
-            {
-                "clash_mode": "Global",
-                "disable_cache": true,
-                "server": "mosdns"
             }
         ],
         "final": "mosdns",
@@ -662,9 +645,8 @@
     ],
     "route": {
         "default_domain_resolver": {
-            "server": "default-dns",
-            "disable_cache": true,
-            "rewrite_ttl": 60
+            "server": "mosdns",
+            "disable_cache": true
         },
         "rules": [
             {
