@@ -784,23 +784,9 @@
             },
             {
                 "type": "local",
-                "tag": "talkatoneads-rule",
-                "format": "binary",
-                "path": "/etc/sing-box/ruleset/talkatoneads.srs"
-            },
-            {
-                "type": "local",
                 "tag": "talkatonecdn-rule",
                 "format": "binary",
                 "path": "/etc/sing-box/ruleset/talkatonecdn.srs"
-            },
-            {
-                "type": "remote",
-                "tag": "ads-rule",
-                "format": "binary",
-                "url": "https://github.nascloud.us.kg/https://raw.githubusercontent.com/DustinWin/ruleset_geodata/refs/heads/sing-box-ruleset/ads.srs",
-                "download_detour": "🎯 全球直连",
-                "update_interval": "12h"
             },
             {
                 "type": "remote",
