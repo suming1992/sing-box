@@ -59,18 +59,8 @@
             "auto_route": true,
             "auto_redirect": true,
             "strict_route": true,
+            "endpoint_independent_nat": true,
             "stack": "mixed"
-        },
-        {
-            "type": "mixed",
-            "tag": "mixed-in",
-            "listen": "::",
-            "listen_port": 2080,
-            "tcp_fast_open": true,
-            "tcp_multi_path": true,
-            "udp_fragment": true,
-            "users": [],
-            "set_system_proxy": false
         }
     ],
     "outbounds": [
