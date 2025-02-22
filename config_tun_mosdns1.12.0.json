@@ -16,8 +16,7 @@
         },
         "cache_file": {
             "enabled": true,
-            "path": "/etc/sing-box/cache.db",
-            "store_fakeip": false
+            "path": "/etc/sing-box/cache.db"
         }
     },
     "dns": {
@@ -45,6 +44,7 @@
             }
         ],
         "final": "mosdns",
+        "strategy": "prefer_ipv4",
         "disable_cache": true
     },
     "inbounds": [
