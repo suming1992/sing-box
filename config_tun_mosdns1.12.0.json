@@ -44,7 +44,6 @@
             }
         ],
         "final": "mosdns",
-        "strategy": "prefer_ipv4",
         "disable_cache": true
     },
     "inbounds": [
